@@ -7,16 +7,16 @@ while true; do
 
 # Power/Battery Status
 if [ "$( cat /sys/class/power_supply/AC/online )" -eq "1" ]; then
-		DWM_BATTERY="$( acpi | egrep -o "[0-9]+%" ) AC"
+        DWM_BATTERY="$( acpi | egrep -o "[0-9]+%" ) AC"
         DWM_RENEW_INT=3
         BAT_SHOW_HINT=true
 else
-		DWM_BATTERY=$( acpi | egrep -o "[0-9]+%" )
+        DWM_BATTERY=$( acpi | egrep -o "[0-9]+%" )
         DWM_RENEW_INT=30
 
         if [[ $( echo $DWM_BATTERY | sed 's/[^0-9]//g' ) < 10 && $BAT_SHOW_HINT == true ]]; then
             zenity --warning --ok-label="Sure, dude" --icon-name="battery-caution" \
-                --text="Oops.. The battery is almost low! :(\nPls connect me to power source, dude." 
+                --text="Oops.. The battery is almost low! :(\nPls connect me to power source, dude."
             BAT_SHOW_HINT=false
         fi
 fi
@@ -24,14 +24,14 @@ fi
 # Wi-Fi eSSID
 DWM_ESSID=$( /sbin/iwgetid -r )
 if [[ $? -ne 0 ]]; then
-	DWM_ESSID="disconnected"
+    DWM_ESSID="disconnected"
 fi
 
 # Keyboard layout
-if [ "`xset -q | awk -F \" \" '/Group 2/ {print($4)}'`" = "on" ]; then 
-		  DWM_LAYOUT="Rus"
-else 
-		  DWM_LAYOUT="Eng"
+if [ "`xset -q | awk -F \" \" '/Group 2/ {print($4)}'`" = "on" ]; then
+    DWM_KEYBOARD_LAYOUT="Rus"
+else
+    DWM_KEYBOARD_LAYOUT="Eng"
 fi
 
 # Volume Level
@@ -43,14 +43,14 @@ DWM_CLOCK=$( date '+%H:%M' )
 # If MOCP is running
 MOCP_STATE=`mocp -i | head -n 1 | cut -d" " -f 2`
 if [[ $MOCP_STATE == "PLAY" ]]; then
-	DWM_PLAYER="["$( mocp -Q "%a - %t" )"] "
+    DWM_PLAYER="["$( mocp -Q "%a - %t" )"] "
 elif [[ $MOCP_STATE == "PAUSE" ]]; then
-	DWM_PLAYER="[|| "$( mocp -Q "%a - %t" )"] "
-else 
-	DWM_PLAYER=""
+    DWM_PLAYER="[|| "$( mocp -Q "%a - %t" )"] "
+else
+    DWM_PLAYER=""
 fi
-	
-DWM_STATUS="$DWM_PLAYER[$DWM_LAYOUT] [Vol: $DWM_VOL] [Bat: $DWM_BATTERY] [$DWM_CLOCK]"
+
+DWM_STATUS="$DWM_PLAYER[$DWM_KEYBOARD_LAYOUT] [Vol: $DWM_VOL] [Bat: $DWM_BATTERY] [$DWM_CLOCK]"
 
 xsetroot -name "$DWM_STATUS"
 sleep $DWM_REFRESH_INT

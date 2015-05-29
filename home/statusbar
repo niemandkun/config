@@ -7,18 +7,18 @@ while true; do
 
 # Power/Battery Status
 if [ "$( cat /sys/class/power_supply/AC/online )" -eq "1" ]; then
-        DWM_BATTERY="$( acpi | egrep -o "[0-9]+%" ) AC"
-        DWM_RENEW_INT=3
-        BAT_SHOW_HINT=true
+    DWM_BATTERY="$( acpi | egrep -o "[0-9]+%" ) AC"
+    DWM_RENEW_INT=3
+    BAT_SHOW_HINT=true
 else
-        DWM_BATTERY=$( acpi | egrep -o "[0-9]+%" )
-        DWM_RENEW_INT=30
+    DWM_BATTERY=$( acpi | egrep -o "[0-9]+%" )
+    DWM_RENEW_INT=30
 
-        if [[ $( echo $DWM_BATTERY | sed 's/[^0-9]//g' ) < 10 && $BAT_SHOW_HINT == true ]]; then
-            zenity --warning --ok-label="Sure, dude" --icon-name="battery-caution" \
-                --text="Oops.. The battery is almost low! :(\nPls connect me to power source, dude."
-            BAT_SHOW_HINT=false
-        fi
+    if [[ $( echo $DWM_BATTERY | sed 's/[^0-9]//g' ) < 10 && $BAT_SHOW_HINT == true ]]; then
+        zenity --warning --ok-label="Sure, dude" --icon-name="battery-caution" \
+            --text="Oops.. The battery is almost low! :(\nPls connect me to power source, dude."
+        BAT_SHOW_HINT=false
+    fi
 fi
 
 # Wi-Fi eSSID

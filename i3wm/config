@@ -114,8 +114,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer sset PCM 10%+
-bindsym XF86AudioLowerVolume exec amixer sset PCM 10%-
+bindsym XF86AudioRaiseVolume exec amixer sset PCM 7%+
+bindsym XF86AudioLowerVolume exec amixer sset PCM 7%-
 bindsym XF86AudioMute exec amixer sset Master toggle
 
 # Sreen brightness controls
@@ -149,11 +149,11 @@ mode "resize" {
 bindsym $mod+g mode "resize"
 
 # class                 border  backgr. text    indicator
-client.focused          #333333 #333333 #ffffff #2e9ef4
-client.focused_inactive #333333 #333333 #ffffff #484e50
-client.unfocused        #333333 #333333 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.focused          #373b41 #373b41 #c5c8c6 #2e9ef4
+client.focused_inactive #1d1f21 #1d1f21 #c5c8c6 #484e50
+client.unfocused        #1d1f21 #1d1f21 #777777 #292d2e
+client.urgent           #2f343a #900000 #c5c8c6 #900000
+client.placeholder      #000000 #0c0c0c #c5c8c6 #000000
 
 # border style < normal | none | 1pixel | pixel [n] >
 new_window normal
@@ -165,13 +165,13 @@ bar {
     separator_symbol " | "
     status_command i3status
     colors {
-        background #121212
-        statusline #ffffff
+        background #1d1f21
+        statusline #c5c8c6
         separator #666666
 
-        focused_workspace  #121212 #121212 #ffffff
-        active_workspace   #121212 #121212 #ffffff
-        inactive_workspace #121212 #121212 #888888
-        urgent_workspace   #121212 #600000 #ffffff
+        focused_workspace  #1d1f21 #1d1f21 #c5c8c6
+        active_workspace   #1d1f21 #1d1f21 #c5c8c6
+        inactive_workspace #1d1f21 #1d1f21 #777777
+        urgent_workspace   #1d1f21 #600000 #ffffff
     }
 }

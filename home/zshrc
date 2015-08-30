@@ -1,3 +1,9 @@
+# Global variables settings
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+#export QT_IM_MODULE=ibus
+#export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory
 HISTSIZE=1000
@@ -63,7 +69,7 @@ colors
 # Autocompletion
 zstyle ':completion:*' menu select
 
-zstyle ':completion:*:processes' command 'ps -ax' 
+zstyle ':completion:*:processes' command 'ps -ax'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
@@ -73,18 +79,17 @@ zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
 ### Customize Prompt ###
-#PROMPT="%{$fg[green]%}%n@%m:%{$fg[blue]%}%~ $%{$reset_color%} "
-PROMPT="%{$fg[blue]%}%d %{$fg[green]%}> %{$reset_color%}"
+
+PROMPT="%{$fg[green]%}%n@%m:%{$fg[blue]%}%~ $%{$reset_color%} "
+#PROMPT=" %{$fg[blue]%}%d %{$fg[green]%}> %{$reset_color%}"
 #PROMPT="%{$fg_bold[yellow]%}→ %{$fg_no_bold[blue]%}%d%{$reset_color%} "
+
 RPROMPT="%{$reset_color%}[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 
 ### Aliases ###
-alias ls='ls --color=auto'
+alias grep='grep --color'
+alias ls='ls --color=auto --group-directories-first'
 alias lla='ls -lA'
 alias la='ls -A'
 alias ll='ls -l'
-alias df='df -h'
-alias pacman='sudo pacman'
 alias vifm='vifm $PWD'
-alias cal='cal -m'
-alias wicd='wicd-curses'

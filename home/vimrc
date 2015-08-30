@@ -1,14 +1,17 @@
 " Vim config file "
 
-colorscheme jellybeans
+"colorscheme base16-default
 syntax on
 set number
 
-set guioptions=m
-set guifont=Terminus\ 12
-"set guifont=PT\ Mono\ 11
-"set guifont=Envy\ Code\ R\ 11
+set guioptions=
+set guifont=Droid\ Sans\ Mono\ 11
+set linespace=3
 set winminheight=0
+
+"disable beeping and blinking
+set noeb vb t_vb=
+autocmd GUIEnter * set vb t_vb=
 
 set ignorecase
 set incsearch
@@ -22,9 +25,14 @@ set iskeyword=@,48-57,_,192-255
 set linebreak
 set dy=lastline
 
-" python special "
 " remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
+
+" jedi vim configuration
+let g:jedi#auto_vim_configuration = 0
+set completeopt=menuone,longest
+inoremap <C-c> <Esc>
+
 " highlight overlength lines
 highlight OverLength ctermfg=red guifg=red
 match OverLength /\%80v.*/

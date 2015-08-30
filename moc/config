@@ -69,7 +69,7 @@ ReadTags = yes
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-MusicDir = /home/niemand/music
+MusicDir = /home/niemandkun/music
 
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
@@ -211,7 +211,7 @@ Theme = transparent-background
 #
 # Example:    XTermTheme = transparent-background
 #
-XTermTheme = transparent-background
+XTermTheme = darkdot_theme
 
 # Should MOC try to autoload the default lyrics file for an audio?  (The
 # default lyrics file is a text file with the same file name as the audio

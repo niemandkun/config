@@ -4,10 +4,10 @@
 set gui=nonavigation
 
 " Press ',' to go to previous tab
-noremap , :tabprevious<CR>
+"noremap , :tabprevious<CR>
 
 " Press '.' to go to next tab
-noremap . :tabnext<CR>
+"noremap . :tabnext<CR>
 
 " Press 'backspace' to go back
 noremap <BS> :back<CR>

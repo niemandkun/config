@@ -30,13 +30,13 @@ font pango:Cantarell Bold 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/stuff/colored-terminal
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec dmenu_run -nb \#282828 -fn 'Cantarell-10'
+bindsym $mod+r exec dmenu_run -nb \#002b36 -sb \#0e5a94 -sf \#000000 -fn 'Cantarell-10'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -100,11 +100,11 @@ bindsym $mod+4 workspace 4: media
 bindsym $mod+5 workspace 5: other
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: main
-bindsym $mod+Shift+2 move container to workspace 2: term
-bindsym $mod+Shift+3 move container to workspace 3: web
-bindsym $mod+Shift+4 move container to workspace 4: media
-bindsym $mod+Shift+5 move container to workspace 5: other
+bindsym $mod+Shift+1 move container to workspace 1: main; workspace 1: main
+bindsym $mod+Shift+2 move container to workspace 2: term; workspace 2: term
+bindsym $mod+Shift+3 move container to workspace 3: web; workspace 3: web
+bindsym $mod+Shift+4 move container to workspace 4: media; workspace 4: media
+bindsym $mod+Shift+5 move container to workspace 5: other; workspace 5: other
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
@@ -118,11 +118,11 @@ bindsym XF86AudioRaiseVolume exec amixer sset PCM 7%+
 bindsym XF86AudioLowerVolume exec amixer sset PCM 7%-
 bindsym XF86AudioMute exec amixer sset Master toggle
 
-# Sreen brightness controls
+# sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
-# Screenshot
+# screenshot
 bindsym Print exec scrot -q 100
 
 # resize window (you can also use the mouse for that)
@@ -151,12 +151,19 @@ mode "resize" {
 
 bindsym $mod+g mode "resize"
 
+# Application rules
+assign [class="^Firefox$"] 3: web
+for_window [class="^Firefox$"] border none
+for_window [class="^Gimp$"] border none
+assign [class="^Vlc$"] 4: media
+
+# Colorscheme
 # class                 border  backgr. text    indicator
-client.focused          #e8e8e8 #e8e8e8 #282828 #2e9ef4
-client.focused_inactive #282828 #282828 #e8e8e8 #484e50
-client.unfocused        #282828 #282828 #b8b8b8 #292d2e
-client.urgent           #ab4642 #ab4642 #f8f8f8 #900000
-client.placeholder      #000000 #181818 #585858 #000000
+client.focused          #073642 #073642 #eee8d5 #eee8d5
+client.focused_inactive #00202b #00202b #657b83 #657b83
+client.unfocused        #00202b #00202b #657b83 #657b83
+client.urgent           #cb4b16 #cb4b16 #eee8d5 #eee8d5
+client.placeholder      #000000 #0c0c0c #000000 #000000
 
 # border style < normal [n px] | none | 1pixel | pixel [n] >
 new_window normal 0 px
@@ -168,13 +175,13 @@ bar {
     separator_symbol " | "
     status_command i3status
     colors {
-        background #282828
-        statusline #b8b8b8
-        separator #585858
+        background #002b36
+        statusline #657b83
+        separator #657b83
 
-        focused_workspace  #282828 #282828 #f8f8f8
-        active_workspace   #282828 #282828 #a8a8a8
-        inactive_workspace #282828 #282828 #a8a8a8
-        urgent_workspace   #ab4642 #ab4642 #f8f8f8
+        focused_workspace  #002b36 #002b36 #eee8d5
+        active_workspace   #002b36 #002b36 #657b83
+        inactive_workspace #002b36 #002b36 #657b83
+        urgent_workspace   #cb4b16 #cb4b16 #eee8d5
     }
 }

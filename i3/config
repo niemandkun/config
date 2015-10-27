@@ -180,9 +180,9 @@ bar {
         statusline #ecefef
         separator #839496
 
-        focused_workspace  #80cbc4 #80cbc4 #263238
-        active_workspace   #263238 #263238 #ecefef
-        inactive_workspace #263238 #263238 #ecefef
+        focused_workspace  #263238 #263238 #ecefef
+        active_workspace   #263238 #263238 #839496
+        inactive_workspace #263238 #263238 #839496
         urgent_workspace   #cc6666 #cc6666 #263238
     }
 }

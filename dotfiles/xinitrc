@@ -16,8 +16,11 @@ fi
 #fi
 
 #export GTK_MODULES=topmenu-gtk-module
+export ANDROID_HOME=/opt/android-sdk
 
 xrdb -merge ~/.Xresources &
-xset r rate 200 40 &
-feh --bg-scale wallpapers/lowpoly-rocket.png &
+xset r rate 200 50 &
+#xsetroot -solid \#000 &
+feh --bg-fill wallpapers/alps.jpg &
+#exec startkde
 exec i3

@@ -20,7 +20,5 @@ export ANDROID_HOME=/opt/android-sdk
 
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &
-#xsetroot -solid \#000 &
-feh --bg-fill wallpapers/alps.jpg &
-#exec startkde
+feh --bg-fill wallpapers/14366596922523.jpg &
 exec i3

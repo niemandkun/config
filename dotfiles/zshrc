@@ -1,8 +1,7 @@
 # Global variables settings
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=ibus
-#export QT_IM_MODULE=ibus
-#export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
+#export GTK_MODULES=topmenu-gtk-module
+export ANDROID_HOME=/opt/android-sdk
+export VISUAL=vim
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory
@@ -60,31 +59,39 @@ ttyctl -f
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/niemand/.zshrc'
 
-autoload -Uz compinit promptinit colors
+autoload -Uz compinit colors vcs_info
 compinit
-promptinit
 colors
 
-
-# Autocompletion
+# Autocompletion tricks
 zstyle ':completion:*' menu select
 
 zstyle ':completion:*:processes' command 'ps -ax'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
+zstyle ':completion:*:kill:*' force-list always
 
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 zstyle ':completion:*:*:killall:*' menu yes select
-zstyle ':completion:*:killall:*'   force-list always
+zstyle ':completion:*:killall:*' force-list always
+
+# VCS integration
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' formats "%{$reset_color%}on %{$fg[green]%}%b %{$reset_color%}"
+precmd () {
+    vcs_info
+}
 
 ### Customize Prompt ###
 
-PROMPT="%{$fg[green]%}%n@%m:%{$fg[blue]%}%~ $%{$reset_color%} "
-#PROMPT=" %{$fg[blue]%}%d %{$fg[green]%}> %{$reset_color%}"
-#PROMPT="%{$fg_bold[yellow]%}→ %{$fg_no_bold[blue]%}%d%{$reset_color%} "
+#PROMPT="%{$fg[green]%}%n@%m:%{$fg[blue]%}%~ $%{$reset_color%} "
+#PROMPT="%{$fg[blue]%}%d %{$fg[green]%}> %{$reset_color%}"
+#PROMPT="%{$fg[yellow]%}→ %{$fg[blue]%}%d%{$reset_color%} "
+PROMPT='%{$fg[green]%}%n %{$reset_color%}at %{$fg[yellow]%}%m %{$reset_color%}in %{$fg[blue]%}%~ ${vcs_info_msg_0_}
+%{$reset_color%}$ '
 
-RPROMPT="%{$reset_color%}[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+RPROMPT='%{$reset_color%}[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]'
 
 ### Aliases ###
 alias grep='grep --color'

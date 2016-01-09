@@ -1,18 +1,18 @@
 !! Cursor theme
-!Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.theme: Adwaita
 
 !! Xft settings
 Xft.dpi:        96
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
-Xft.hintstyle:  hintslight
+Xft.hintstyle:  hintfull
 
 !! URxvt settings
 URxvt.scrollBar: off
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.font: xft:M+ 1mn:size=11:antialias=true:hinting=true:hintstyle=hintslight:rgba=rgb
+URxvt.font: xft:Liberation Mono:size=10:antialias=true:hinting=true:hintstyle=hintslight:rgba=rgb
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.internalBorder: 10
@@ -22,108 +22,75 @@ URxvt.perl-ext-common: default,matcher,searchable-scrollback
 URxvt.urlLauncher: /bin/firefox
 URxvt.matcher.button: 1
 URxvt.cursorBlink: true
-!URxvt.cursorColor: #87af5f
 URxvt.cursorUnderline: false
 URxvt.underlineColor: #4576b5
 
-! fake transparency
-!URxvt.transparent: true
-!URxvt.shading: 20
-! true transparency (composite)
-!URxvt.depth: 32
-!URxvt.background: rgba:0000/0000/0000/cf00
-
-!! Solarized color scheme
-!#define S_base03        #002b36
-!#define S_base02        #073642
-!#define S_base01        #586e75
-!#define S_base00        #657b83
-!#define S_base0         #839496
-!#define S_base1         #93a1a1
-!#define S_base2         #eee8d5
-!#define S_base3         #fdf6e3
-!#define S_yellow        #b58900
-!#define S_orange        #cb4b16
-!#define S_red           #dc322f
-!#define S_magenta       #d33682
-!#define S_violet        #6c71c4
-!#define S_blue          #268bd2
-!#define S_cyan          #2aa198
-!#define S_green         #859900
+!! special
+!URxvt.foreground: #cdd3de
+!URxvt.background: #263238
+!URxvt.cursorColor: #cdd3de
 !
-!URxvt.background:            S_base03
-!URxvt.foreground:            S_base0
-!URxvt.fading:                0
-!URxvt.fadeColor:             S_base03
-!URxvt.cursorColor:           S_base1
-!URxvt.pointerColorBackground:S_base01
-!URxvt.pointerColorForeground:S_base1
+!! black
+!URxvt.color0: #263238
+!URxvt.color8: #1b2327
 !
-!!! black dark/light
-!URxvt.color0:                S_base02
-!URxvt.color8:                S_base03
+!! red
+!URxvt.color1: #ff5370
+!URxvt.color9: #ff5370
 !
-!!! red dark/light
-!URxvt.color1:                S_red
-!URxvt.color9:                S_orange
+!! green
+!URxvt.color2: #c3e88d
+!URxvt.color10: #c3e88d
 !
-!!! green dark/light
-!URxvt.color2:                S_green
-!URxvt.color10:               S_base01
+!! yellow
+!URxvt.color3: #ffcb6b
+!URxvt.color11: #ffcb6b
 !
-!!! yellow dark/light
-!URxvt.color3:                S_yellow
-!URxvt.color11:               S_base00
+!! blue
+!URxvt.color4: #82b1ff
+!URxvt.color12: #82b1ff
 !
-!!! blue dark/light
-!URxvt.color4:                S_blue
-!URxvt.color12:               S_base0
+!! magenta
+!URxvt.color5: #c792ea
+!URxvt.color13: #c792ea
 !
-!!! magenta dark/light
-!URxvt.color5:                S_magenta
-!URxvt.color13:               S_violet
+!! cyan
+!URxvt.color6: #80cbc4
+!URxvt.color14: #80cbc4
 !
-!!! cyan dark/light
-!URxvt.color6:                S_cyan
-!URxvt.color14:               S_base1
-!
-!!! white dark/light
-!URxvt.color7:                S_base2
-!URxvt.color15:               S_base3
+!! white
+!URxvt.color7: #cdd3de
+!URxvt.color15: #fefefe
 
-! special
-URxvt.foreground: #cdd3de
-URxvt.background: #263238
-URxvt.cursorColor: #cdd3de
+!! Tomorrow theme
 
-! black
-URxvt.color0: #263238
-URxvt.color8: #1b2327
+URxvt.foreground:   #4d4d4c
+URxvt.background:   #fafafa
 
-! red
-URxvt.color1: #ff5370
-URxvt.color9: #ff5370
+! CursorColor (Selection)
+! URxvt.cursorColor:  #d6d6d6
 
-! green
-URxvt.color2: #c3e88d
-URxvt.color10: #c3e88d
-
-! yellow
-URxvt.color3: #ffcb6b
-URxvt.color11: #ffcb6b
-
-! blue
-URxvt.color4: #82b1ff
-URxvt.color12: #82b1ff
-
-! magenta
-URxvt.color5: #c792ea
-URxvt.color13: #c792ea
-
-! cyan
-URxvt.color6: #80cbc4
-URxvt.color14: #80cbc4
-
-! white
-URxvt.color7: #cdd3de
-URxvt.color15: #fefefe
+! Black + Grey (Comment)
+URxvt.color0:       #000000
+URxvt.color8:       #8e908c
+! Red + Bright Red
+URxvt.color1:       #c82829
+URxvt.color9:       #ff3334
+! Green + Bright Green
+URxvt.color2:       #718c00
+URxvt.color10:      #9ec400
+! Yellow (Orange) + Bright Yellow (Yellow)
+URxvt.color3:       #f5871f
+URxvt.color11:      #eab700
+! Blue + Bright Blue
+URxvt.color4:       #4271ae
+URxvt.color12:      #5795e6
+! Magenta (Purple) + Bright Magenta
+URxvt.color5:       #8959a8
+URxvt.color13:      #b777e0
+! Cyan (Aqua) + Bright Cyan
+URxvt.color6:       #3e999f
+URxvt.color14:      #54ced6
+! Light Grey (Selection) + White (Current Line)
+URxvt.color7:       #d6d6d6
+URxvt.color15:      #efefef

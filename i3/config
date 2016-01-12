@@ -36,7 +36,7 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec dmenu_run -nb \#635a5f -nf \#dcdcdc -sb \#dcdcdc -sf \#635a5f -fn 'Cantarell-11'
+bindsym $mod+r exec dmenu_run -nb \#ffffff -nf \#4d4d4c -sb \#4d4d4c -sf \#ffffff -fn 'Cantarell-11'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -168,14 +168,15 @@ bindsym $mod+g mode "resize"
 
 # Colorscheme
 # class                 border  backgr. text    indicator
-client.focused          #222222 #222222 #fafafa #222222
-client.focused_inactive #222222 #222222 #fafafa #222222
-client.unfocused        #222222 #222222 #fafafa #222222
-client.urgent           #222222 #222222 #fafafa #222222
-client.placeholder      #222222 #222222 #fafafa #222222
+client.focused          #ffffff #ffffff #4d4d4c #ffffff
+client.focused_inactive #ffffff #ffffff #4d4d4c #ffffff
+client.unfocused        #ffffff #ffffff #4d4d4c #ffffff
+client.urgent           #ffffff #ffffff #4d4d4c #ffffff
+client.placeholder      #ffffff #ffffff #4d4d4c #ffffff
 
 # border style < normal [n px] | none | 1pixel | pixel [n] >
-new_window 1pixel
+new_window none
+new_float none
 
 gaps outer 0
 gaps inner 20
@@ -189,13 +190,13 @@ bar {
     separator_symbol " | "
     status_command i3status
     colors {
-        background #635a5f
-        statusline #dcdcdc
-        separator #dcdcdc
+        background #ffffff
+        statusline #4d4d4c
+        separator #4d4d4c
 
-        focused_workspace  #dcdcdc #dcdcdc #635a5f
-        active_workspace   #635a5f #635a5f #dcdcdc
-        inactive_workspace #635a5f #635a5f #dcdcdc
-        urgent_workspace   #635a5f #635a5f #fefefe
+        focused_workspace  #4d4d4c #4d4d4c #ffffff
+        active_workspace   #ffffff #ffffff #4d4d4c
+        inactive_workspace #ffffff #ffffff #4d4d4c
+        urgent_workspace   #f2777a #f2777a #ffffff
     }
 }

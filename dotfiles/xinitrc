@@ -17,5 +17,6 @@ fi
 
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &
-feh --bg-fill wallpapers/14366596922523.jpg &
+feh --bg-scale wallpapers/1451945224975.jpg &
+compton -cbG --shadow-exclude 'i:e:dmenu' &
 exec i3

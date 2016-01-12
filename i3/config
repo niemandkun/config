@@ -162,21 +162,20 @@ mode "resize" {
 bindsym $mod+g mode "resize"
 
 # Application rules
-for_window [class="^Firefox$"] border 1pixel
-for_window [class="^Gimp$"] border 1pixel
-for_window [class="^NetBeans$"] border 1pixel
-for_window [class="^feh$"] border 1pixel
+#for_window [class="^Firefox$"] border 1pixel
+#for_window [class="^Gimp$"] border 1pixel
+#for_window [class="^NetBeans$"] border 1pixel
 
 # Colorscheme
 # class                 border  backgr. text    indicator
-client.focused          #000000 #000000 #000000 #000000
-client.focused_inactive #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000
-client.urgent           #000000 #000000 #000000 #000000
-client.placeholder      #000000 #000000 #000000 #000000
+client.focused          #222222 #222222 #fafafa #222222
+client.focused_inactive #222222 #222222 #fafafa #222222
+client.unfocused        #222222 #222222 #fafafa #222222
+client.urgent           #222222 #222222 #fafafa #222222
+client.placeholder      #222222 #222222 #fafafa #222222
 
 # border style < normal [n px] | none | 1pixel | pixel [n] >
-new_window none
+new_window 1pixel
 
 gaps outer 0
 gaps inner 20

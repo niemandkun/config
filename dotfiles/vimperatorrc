@@ -1,15 +1,10 @@
-gtk-theme-name="Adwaita"
-gtk-icon-theme-name="Adwaita"
-gtk-font-name="Droid Sans 10"
-gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
-gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-gtk-button-images=0
-gtk-menu-images=0
-gtk-enable-event-sounds=0
-gtk-enable-input-feedback-sounds=0
+" Vimperator settings:
 
-style "vimfix" {
-    bg[NORMAL] = "#fefefe"
-}
+" Disable GUI
+set gui=noaddons,nobookmarks,nomenu,nonavigation,notabs
 
-widget "vim-main-window.*GtkForm" style "vimfix"
+" Sort bookmarks intelligently
+set cpt=l
+
+" Press 'backspace' to go back
+noremap <BS> :back<CR>

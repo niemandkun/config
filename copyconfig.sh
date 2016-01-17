@@ -24,7 +24,6 @@ copy ".Xresources" "dotfiles/Xresources"
 copy ".vimrc" "dotfiles/vimrc"
 copy ".zshrc" "dotfiles/zshrc"
 copy ".vimperatorrc" "dotfiles/vimperatorrc"
-copy ".gtkrc-2.0.mine" "dotfiles/vimperatorrc"
-copy ".gtkrc-2.mine" "dotfiles/vimperatorrc"
+copy ".gtkrc-2.0.mine" "dotfiles/gtkrc-2.0.mine"
 
 echo -e "\nDone!"

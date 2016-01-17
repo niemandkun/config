@@ -1,13 +1,15 @@
-"---Settings------------------------------------------------------
+gtk-theme-name="Adwaita"
+gtk-icon-theme-name="Adwaita"
+gtk-font-name="Droid Sans 10"
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=0
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0
 
-" Disable Firefox address bar
-set gui=nonavigation
+style "vimfix" {
+    bg[NORMAL] = "#fefefe"
+}
 
-" Press ',' to go to previous tab
-"noremap , :tabprevious<CR>
-
-" Press '.' to go to next tab
-"noremap . :tabnext<CR>
-
-" Press 'backspace' to go back
-noremap <BS> :back<CR>
+widget "vim-main-window.*GtkForm" style "vimfix"

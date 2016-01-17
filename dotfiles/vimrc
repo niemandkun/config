@@ -2,13 +2,13 @@
 
 " Colorscheme
 syntax on
-set background=dark
-colorscheme solarized
+"set background=dark
+colorscheme default
 
 " GUI settings
-set guioptions=
-set guifont=Droid\ Sans\ Mono\ 11
-set linespace=3
+set guioptions=m
+set guifont=Liberation\ Mono\ 10
+" set linespace=3
 set winminheight=0
 
 " Disable beeping and blinking
@@ -34,8 +34,9 @@ set dy=lastline
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Jedi vim configuration
+" Jedi configuration
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#force_py_version = 3
 set completeopt=menuone,longest
 inoremap <C-c> <Esc>
 

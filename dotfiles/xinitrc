@@ -4,7 +4,7 @@
 #
 # Executed by startx (run your window manager from here)
 
-compton -cbG -o .5 -r 5 -l -8 -t -8 --shadow-exclude 'i:e:dmenu' &
+#compton -cbG -o .5 -r 5 -l -8 -t -8 --shadow-exclude 'i:e:dmenu' &
 feh --bg-fill wallpapers/pokemon.png &
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &

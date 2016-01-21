@@ -27,11 +27,14 @@ URxvt.underlineColor: #4576b5
 
 
 !! Tomorrow
-!#define t_background      #ffffff
-#define t_background       #f6f3ee
+!#define t_background       #f6f3ee
+!#define t_foreground       #4d4d4c
+
+#define t_background       #f8f8d8
+#define t_foreground       #404040
+
 #define t_current_line     #efefef
 #define t_selection        #d6d6d6
-#define t_foreground       #4d4d4c
 #define t_comment          #8e908c
 #define t_red              #c82829
 #define t_orange           #f5871f
@@ -43,9 +46,9 @@ URxvt.underlineColor: #4576b5
 
 !! TomorrowNightEighties
 !#define t_background       #2d2d2d
+!#define t_foreground       #cccccc
 !#define t_current_line     #393939
 !#define t_selection        #515151
-!#define t_foreground       #cccccc
 !#define t_comment          #999999
 !#define t_red              #f2777a
 !#define t_orange           #f99157

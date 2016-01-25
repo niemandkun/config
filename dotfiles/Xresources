@@ -12,7 +12,8 @@ Xft.hintstyle:  hintfull
 URxvt.scrollBar: off
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.font: xft:Terminus:size=10:hintstyle=hintslight
+!URxvt.font: xft:Terminus:size=10:hintstyle=hintslight
+URxvt.font: -dec-terminal-bold-r-normal-*-14-140-75-75-c-80-iso8859-1
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.internalBorder: 10
@@ -125,8 +126,8 @@ URxvt.color12:      #5555ff
 ! Magenta / Bright Magenta
 URxvt.color5:       #aa00aa
 URxvt.color13:      #ff55ff
-!
-!! Cyan / Bright Cyan
+
+! Cyan / Bright Cyan
 URxvt.color6:       #00aaaa
 URxvt.color14:      #55ffff
 

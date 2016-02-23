@@ -6,15 +6,15 @@ Xft.dpi:        96
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
-Xft.hintstyle:  hintfull
+Xft.hintstyle:  hintslight
 
 !! URxvt settings
 URxvt.scrollBar: off
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-!URxvt.font: xft:Terminus:size=10:hintstyle=hintslight
-URxvt.font: -dec-terminal-bold-r-normal-*-14-140-75-75-c-80-iso8859-1
-URxvt.letterSpace: 0
+URxvt.font: xft:Liberation Mono:size=10
+!URxvt.font: -dec-terminal-bold-r-normal-*-14-140-75-75-c-80-iso8859-1
+URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.internalBorder: 10
 URxvt.selectToClipboard: true

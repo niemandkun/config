@@ -2,14 +2,7 @@
 
 " Colorscheme
 syntax on
-"set background=dark
 colorscheme default
-
-" GUI settings
-set guioptions=m
-set guifont=Liberation\ Mono\ 10
-" set linespace=3
-set winminheight=0
 
 " Disable beeping and blinking
 set noeb vb t_vb=
@@ -30,6 +23,10 @@ set expandtab
 set iskeyword=@,48-57,_,192-255
 set linebreak
 set dy=lastline
+
+" Wildmenu
+set wildmenu
+set wildmode=list:longest,full
 
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e

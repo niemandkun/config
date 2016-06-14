@@ -12,6 +12,7 @@ autocmd GUIEnter * set vb t_vb=
 set ignorecase
 set incsearch
 set number
+set relativenumber
 
 " Indentation settings
 set autoindent

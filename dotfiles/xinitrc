@@ -8,7 +8,7 @@ setxkbmap us,ru -option grp:win_space_toggle -option terminate:ctrl_alt_bksp &
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &
 xset b off &
-feh --bg-scale ~/wallpapers/1452463740804.jpg
+feh --bg-scale ~/wallpapers/1452463740804.jpg &
 xcompmgr -o .5 -c -f -D 2 &
 xmobar &
 exec xmonad

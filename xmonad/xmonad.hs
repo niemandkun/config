@@ -7,6 +7,8 @@ import XMonad.Util.CustomKeys
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Fullscreen
+import XMonad.Hooks.ManageHelpers
 import Graphics.X11.ExtraTypes.XF86
 
 baseConfig = desktopConfig
@@ -44,7 +46,7 @@ myLogHook pipe = dynamicLogWithPP $ defaultPP
     , ppLayout = const ""
     , ppOutput = hPutStrLn pipe }
 
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = fullscreenFull $ tiled ||| Mirror tiled ||| Full
     where
         tiled = Tall nmaster delta ratio
         nmaster = 1
@@ -55,6 +57,11 @@ myLayoutHook = avoidStruts
     $ gaps [(U, 8), (D, 10), (R, 20), (L, 20)]
     $ spacing 8
     $ myLayout
+
+myManageHook = manageDocks
+    <+> (isFullscreen --> doFullFloat)
+    <+> fullscreenManageHook
+    <+> manageHook baseConfig
 
 myConfig pipe = baseConfig
     -- Common config
@@ -69,8 +76,9 @@ myConfig pipe = baseConfig
     -- Hooks
     , startupHook = setWMName "LG3D"
     , logHook = myLogHook pipe
-    , manageHook = manageDocks <+> manageHook baseConfig
+    , manageHook = myManageHook
     , layoutHook = myLayoutHook
+    , handleEventHook = fullscreenEventHook
 
     -- Keybindings
     , keys = customKeys deleteKeys insertKeys

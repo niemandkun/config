@@ -120,8 +120,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec i3-msg exit
 
 # alsa controls
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5+
-bindsym XF86AudioLowerVolume exec amixer sset Master 5-
+bindsym XF86AudioRaiseVolume exec amixer sset PCM 7%+
+bindsym XF86AudioLowerVolume exec amixer sset PCM 7%-
 bindsym XF86AudioMute exec amixer sset Master toggle
 
 # sreen brightness controls

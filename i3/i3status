@@ -22,7 +22,7 @@ general {
 #order += "wireless wlp4s0"
 #order += "ethernet enp5s0"
 order += "battery 0"
-order += "volume master"
+order += "volume pcm"
 order += "tztime local"
 
 wireless wlp4s0 {
@@ -60,10 +60,10 @@ disk "/" {
     format = "%avail"
 }
 
-volume master {
+volume pcm {
     format = "Sound %volume"
     format_muted = "Sound off"
     device = "default"
-    mixer = "Master"
+    mixer = "PCM"
     mixer_idx = 0
 }

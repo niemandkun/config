@@ -8,8 +8,5 @@ setxkbmap us,ru -option grp:win_space_toggle -option terminate:ctrl_alt_bksp &
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &
 xset b off &
-feh --bg-scale ~/wallpapers/1452463740804.jpg &
 xsetroot -cursor_name left_ptr &
-xcompmgr -o .5 -c -f -D 2 &
-xmobar &
-exec xmonad
+exec i3

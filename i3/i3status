@@ -19,25 +19,25 @@ general {
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 #order += "cpu_usage"
-order += "wireless wlan0"
-order += "ethernet eth0"
+#order += "wireless wlp4s0"
+#order += "ethernet enp5s0"
 order += "battery 0"
-order += "volume pcm"
+order += "volume master"
 order += "tztime local"
 
-wireless wlan0 {
-    format_up = " Wireless %quality"
-    format_down = " Wireless down"
+wireless wlp4s0 {
+    format_up = "Wireless %quality"
+    format_down = "Wireless down"
 }
 
-ethernet eth0 {
+ethernet enp5s0 {
     # if you use %speed, i3status requires root privileges
-    format_up = " Ethernet %speed"
-    format_down = " Ethernet down"
+    format_up = "Ethernet %speed"
+    format_down = "Ethernet down"
 }
 
 battery 0 {
-    format = " Battery %percentage"
+    format = "Battery %percentage"
 }
 
 run_watch DHCP {
@@ -49,7 +49,7 @@ run_watch VPN {
 }
 
 tztime local {
-    format = " %A %d %B %l:%M %P"
+    format = "%A %d %B %l:%M %P"
 }
 
 cpu_usage {
@@ -60,10 +60,10 @@ disk "/" {
     format = "%avail"
 }
 
-volume pcm {
-    format = " Volume %volume"
-    format_muted = "Volume %volume (muted)"
+volume master {
+    format = "Sound %volume"
+    format_muted = "Sound off"
     device = "default"
-    mixer = "PCM"
+    mixer = "Master"
     mixer_idx = 0
 }

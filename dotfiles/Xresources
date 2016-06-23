@@ -1,12 +1,10 @@
-!! Cursor theme
-!Xcursor.theme: Adwaita
-
-!! Xft settings
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
+!! Font settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
 
 !! URxvt settings
 URxvt.scrollBar: off

@@ -2,6 +2,10 @@
 #export GTK_MODULES=topmenu-gtk-module
 export ANDROID_HOME=/opt/android-sdk
 export VISUAL=vim
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory

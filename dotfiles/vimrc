@@ -8,6 +8,10 @@ colorscheme default
 set noeb vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
+" Show non printing characters
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+set list
+
 " Editor settings
 set ignorecase
 set incsearch

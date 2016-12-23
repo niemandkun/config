@@ -9,7 +9,7 @@ gtk-enable-event-sounds=0
 gtk-enable-input-feedback-sounds=0
 
 style "vimfix" {
-    bg[NORMAL] = "#fefefe"
+    bg[NORMAL] = "#fff"
 }
 
 widget "vim-main-window.*GtkForm" style "vimfix"

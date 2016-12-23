@@ -10,8 +10,7 @@ Xft.lcdfilter: lcddefault
 URxvt.scrollBar: off
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.font: xft:AtariST:hinting=false:antialias=false
-URxvt.boldFont:
+URxvt.font: xft:Liberation Mono:pixelsize=12
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.internalBorder: 10

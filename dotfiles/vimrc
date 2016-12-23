@@ -4,19 +4,33 @@
 syntax on
 colorscheme default
 
+highlight Pmenu guibg=lightyellow
+highlight PmenuSbar guibg=lightyellow
+highlight PmenuSel guibg=lightgreen
+highlight PmenuThumb guibg=lightgreen
+highlight NonText guifg=lightblue
+highlight SpecialKey guifg=lightblue
+
+" GUI settings
+if has("gui_running")
+    set guioptions=m
+    set guifont=Ubuntu\ Mono\ 11
+    set lines=40
+    set columns=80
+endif
+
 " Disable beeping and blinking
 set noeb vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
 set list
 
 " Editor settings
 set ignorecase
 set incsearch
 set number
-set relativenumber
 
 " Indentation settings
 set autoindent
@@ -37,10 +51,20 @@ set wildmode=list:longest,full
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Jedi configuration
-let g:jedi#auto_vim_configuration = 0
+let g:jedi#auto_vim_configuration = 1
 let g:jedi#force_py_version = 3
 set completeopt=menuone,longest
 inoremap <C-c> <Esc>
+
+" Clang_complete configuration
+let g:clang_library_path = '/usr/lib/libclang.so'
+let g:clang_auto_select = 1
+
+if has("gui_running")
+    inoremap <C-Space> <C-x><C-u>
+else
+    inoremap <C-@> <C-x><C-u>
+endif
 
 " Highlight overlength lines
 highlight OverLength ctermfg=red guifg=red
@@ -56,8 +80,8 @@ imap <F2> <Esc>:w<CR>
 map <F2> <Esc>:w<CR>
 
 " Map F3 to update file content
-imap <F3> <Esc>:read
-map <F3> <Esc>:read
+imap <F3> <Esc>:read<CR>
+map <F3> <Esc>:read<CR>
 
 " Map F4 to open new tab
 imap <F4> <Esc>:browse tabnew<CR>

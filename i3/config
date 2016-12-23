@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:AtariST
+font pango:Droid Sans Mono 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,13 +30,13 @@ font pango:AtariST
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
 # start rofi (a program launcher)
-bindsym $mod+r exec rofi -show run
+bindsym $mod+r exec dmenu
 
 # change focus
 bindsym $mod+h focus left
@@ -158,6 +158,7 @@ bindsym $mod+g mode "resize"
 
 # Application rules
 for_window [class="^URxvt$"] border pixel 3
+for_window [class="^Gnome-terminal$"] border pixel 1
 
 # Colorscheme
 # class                 border  backgr. text    indicator
@@ -172,8 +173,8 @@ new_float none
 hide_edge_borders both
 
 # gaps
-gaps inner 10
-smart_gaps on
+#gaps inner 10
+#smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

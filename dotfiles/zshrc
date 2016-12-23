@@ -2,10 +2,6 @@
 #export GTK_MODULES=topmenu-gtk-module
 export ANDROID_HOME=/opt/android-sdk
 export VISUAL=vim
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory
@@ -82,25 +78,29 @@ zstyle ':completion:*:killall:*' force-list always
 # VCS integration
 setopt prompt_subst
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats "%{$reset_color%}at %{$fg[green]%}%b %{$reset_color%}"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr " [%{$fg_no_bold[yellow]%}!%{$reset_color%}]"
+zstyle ':vcs_info:*' unstagedstr " [%{$fg[red]%}?%{$reset_color%}]"
+zstyle ':vcs_info:*' formats " %{$reset_color%}(%{$fg[green]%}%b%{$reset_color%})%u%c"
+
 precmd () {
     vcs_info
 }
 
-### Customize Prompt ###
-
-#PROMPT="%{$fg[green]%}%n@%m:%{$fg[blue]%}%~ $%{$reset_color%} "
-#PROMPT="%{$fg[blue]%}%d %{$fg[green]%}> %{$reset_color%}"
-#PROMPT="%{$fg[yellow]%}→ %{$fg[blue]%}%d%{$reset_color%} "
-PROMPT='%{$fg[green]%}%n %{$reset_color%}on %{$fg[yellow]%}%m %{$reset_color%}in %{$fg[blue]%}%~ ${vcs_info_msg_0_}
-%{$reset_color%}$ '
-
+# Customize Prompt
 RPROMPT='%{$reset_color%}[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]'
+PROMPT='%{$fg[cyan]%}%n@%m %{$fg[blue]%}%~${vcs_info_msg_0_}%{$reset_color%}
+$ '
 
-### Aliases ###
+# Aliases
 alias grep='grep --color'
 alias ls='ls --color=auto --group-directories-first'
 alias lla='ls -lA'
 alias la='ls -A'
 alias ll='ls -l'
 alias sx='startx'
+alias ipy='ipython'
+alias ipy2='ipython2'
+alias ipy3='ipython3'
+alias cls='clear'
+alias gut='git'

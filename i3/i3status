@@ -21,8 +21,8 @@ general {
 #order += "cpu_usage"
 #order += "wireless wlp4s0"
 #order += "ethernet enp5s0"
-order += "battery 0"
-order += "volume pcm"
+#order += "battery 0"
+#order += "volume pcm"
 order += "tztime local"
 
 wireless wlp4s0 {
@@ -49,7 +49,7 @@ run_watch VPN {
 }
 
 tztime local {
-    format = "%A %d %B %l:%M %P"
+    format = "%l:%M %P  "
 }
 
 cpu_usage {

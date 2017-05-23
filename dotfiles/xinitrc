@@ -8,6 +8,6 @@ setxkbmap us,ru -option grp:win_space_toggle -option terminate:ctrl_alt_bksp &
 xrdb -merge ~/.Xresources &
 xset r rate 200 50 &
 xset b off &
-#xsetroot -cursor_name left_ptr &
-#exec i3
-exec dbus-launch gnome-session
+xsetroot -cursor_name left_ptr &
+~/.fehbg &
+exec i3

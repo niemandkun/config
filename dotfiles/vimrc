@@ -4,17 +4,23 @@
 syntax on
 colorscheme default
 
-highlight Pmenu guibg=lightyellow
-highlight PmenuSbar guibg=lightyellow
-highlight PmenuSel guibg=lightgreen
-highlight PmenuThumb guibg=lightgreen
-highlight NonText guifg=lightblue
-highlight SpecialKey guifg=lightblue
+highlight Pmenu guibg=lightyellow ctermbg=228 ctermfg=black
+highlight PmenuSbar guibg=lightyellow ctermbg=228 ctermfg=black
+highlight PmenuSel guibg=lightgreen ctermbg=darkgreen ctermfg=black
+highlight PmenuThumb guibg=lightgreen ctermbg=darkgreen ctermfg=black
+
+highlight NonText guifg=grey guibg=white ctermfg=darkgrey
+highlight SpecialKey guifg=grey guibg=white ctermfg=darkgrey
+
+highlight VertSplit guifg=white guibg=grey
+
+highlight StatusLine guifg=grey guibg=black
+highlight StatusLineNC guifg=grey guibg=black
 
 " GUI settings
 if has("gui_running")
     set guioptions=m
-    set guifont=Ubuntu\ Mono\ 11
+    set guifont=Ubuntu\ Mono\ 12
     set lines=40
     set columns=80
 endif
@@ -24,13 +30,14 @@ set noeb vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
-set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
-set list
+" set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:.
 
 " Editor settings
 set ignorecase
 set incsearch
 set number
+set list
 
 " Indentation settings
 set autoindent
@@ -58,7 +65,10 @@ inoremap <C-c> <Esc>
 
 " Clang_complete configuration
 let g:clang_library_path = '/usr/lib/libclang.so'
+let g:clang_complete_patterns = 1
+let g:clang_complete_macros = 1
 let g:clang_auto_select = 1
+let g:clang_snippets = 1
 
 if has("gui_running")
     inoremap <C-Space> <C-x><C-u>
@@ -66,14 +76,31 @@ else
     inoremap <C-@> <C-x><C-u>
 endif
 
+" Highlight tasm syntax
+au BufRead,BufNewFile *.ASM set filetype=tasm
+
 " Highlight overlength lines
-highlight OverLength ctermfg=red guifg=red
-match OverLength /\%80v.*/
+" highlight OverLength ctermfg=red guifg=red
+" match OverLength /\%80v.*/
+
+" Split
+set splitbelow
+set splitright
+
+" Split navigation keys
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Middle mouse button behaviour
 set mouse=a
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
+
+" Map F12 to toggle tree
+imap <F12> <ESC>:NERDTreeToggle<CR>
+map <F12> <ESC>:NERDTreeToggle<CR>
 
 " Map F2 to save file
 imap <F2> <Esc>:w<CR>

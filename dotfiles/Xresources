@@ -3,15 +3,15 @@ Xft.dpi: 96
 Xft.antialias: true
 Xft.rgba: rgb
 Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 !! URxvt settings
 URxvt.scrollBar: off
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.font: xft:Liberation Mono:pixelsize=12
-URxvt.letterSpace: 0
+URxvt.font: xft:Ubuntu Mono:pixelsize=15
+URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.internalBorder: 10
 URxvt.selectToClipboard: true
@@ -23,21 +23,9 @@ URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.underlineColor: #4576b5
 
-!! Rofi settings
-rofi.lines: 10
-rofi.width: 500
-rofi.bw: 3
-rofi.font: AtariST 10
-rofi.padding: 10
-rofi.location: 2
-rofi.yoffset: 120
-rofi.color-enabled: true
-rofi.color-window: #000000, #aaaaaa, #000000
-rofi.color-normal: #000000, #aaaaaa, #000000, #aaaaaa, #000000
-
 !! VGA theme
 URxvt.foreground:   #aaaaaa
-URxvt.background:   #000000
+URxvt.background:   #181818
 URxvt.cursorColor:  #00aa00
 
 ! Black / Grey
@@ -57,7 +45,7 @@ URxvt.color3:       #aa5500
 URxvt.color11:      #ffff55
 
 ! Blue / Bright Blue
-URxvt.color4:       #0000aa
+URxvt.color4:       #5555aa
 URxvt.color12:      #5555ff
 
 ! Magenta / Bright Magenta

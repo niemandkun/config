@@ -2,6 +2,7 @@
 #export GTK_MODULES=topmenu-gtk-module
 export ANDROID_HOME=/opt/android-sdk
 export VISUAL=vim
+export EDITOR=vim
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory
@@ -12,7 +13,7 @@ setopt HIST_IGNORE_DUPS
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-### Keybindings ###
+# Keybindings
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -A key

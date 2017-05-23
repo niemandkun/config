@@ -1,7 +1,7 @@
 " Vimperator settings:
 
 " Disable GUI
-set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
+set gui=noaddons,nobookmarks,nomenu,nonavigation,notabs
 
 " Sort bookmarks intelligently
 set cpt=l

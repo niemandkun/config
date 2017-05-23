@@ -9,8 +9,8 @@ highlight PmenuSbar guibg=lightyellow ctermbg=228 ctermfg=black
 highlight PmenuSel guibg=lightgreen ctermbg=darkgreen ctermfg=black
 highlight PmenuThumb guibg=lightgreen ctermbg=darkgreen ctermfg=black
 
-highlight NonText guifg=grey guibg=white ctermfg=darkgrey
-highlight SpecialKey guifg=grey guibg=white ctermfg=darkgrey
+highlight NonText guifg=grey guibg=white ctermfg=238
+highlight SpecialKey guifg=grey guibg=white ctermfg=238
 
 highlight VertSplit guifg=white guibg=grey
 

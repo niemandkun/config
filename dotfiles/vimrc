@@ -31,7 +31,7 @@ autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
 " set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
-set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:.
+set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
 
 " Editor settings
 set ignorecase

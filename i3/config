@@ -135,6 +135,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym $mod+Delete exec xrandr --output LVDS1 --auto
 bindsym $mod+Ctrl+Delete exec xrandr --output LVDS1 --off
 
+bindsym $mod+Insert exec xrandr --output VGA1 --auto
+bindsym $mod+Ctrl+Insert exec xrandr --output VGA1 --off
+
 # screenshot
 bindsym Print exec scrot -q 100
 

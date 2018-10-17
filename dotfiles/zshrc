@@ -1,8 +1,12 @@
 # Global variables settings
-#export GTK_MODULES=topmenu-gtk-module
-export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=/home/poroshin-ivan/.local/android-sdk
+export ANDROID_SDK=/home/poroshin-ivan/.local/android-sdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export VISUAL=vim
 export EDITOR=vim
+
+# Disable terminal freezing
+stty -ixon
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhistory
@@ -90,7 +94,7 @@ precmd () {
 
 # Customize Prompt
 RPROMPT='%{$fg_bold[white]%}[%{$fg_bold[yellow]%}%?%{$fg_bold[white]%}]%{$reset_color%}'
-PROMPT='%{$fg_bold[cyan]%}%n@%m %{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$fg_bold[blue]%} $ %{$reset_color%}'
+PROMPT='%{$fg_bold[green]%}%n %{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$fg_bold[blue]%} $ %{$reset_color%}'
 
 # Aliases
 alias grep='grep --color'

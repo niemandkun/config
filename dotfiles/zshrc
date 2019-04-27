@@ -1,7 +1,9 @@
 # Global variables settings
+#export GTK_MODULES=topmenu-gtk-module
 export ANDROID_HOME=/home/poroshin-ivan/.local/android-sdk
 export ANDROID_SDK=/home/poroshin-ivan/.local/android-sdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_OPTS="-Djavax.net.ssl.trustStorePassword=changeit"
 export VISUAL=vim
 export EDITOR=vim
 
@@ -93,8 +95,9 @@ precmd () {
 }
 
 # Customize Prompt
-RPROMPT='%{$fg_bold[white]%}[%{$fg_bold[yellow]%}%?%{$fg_bold[white]%}]%{$reset_color%}'
-PROMPT='%{$fg_bold[green]%}%n %{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$fg_bold[blue]%} $ %{$reset_color%}'
+#RPROMPT='%{$fg_bold[white]%}[%{$fg_bold[yellow]%}%?%{$fg_bold[white]%}]%{$reset_color%}'
+PROMPT='%{$fg_bold[green]%}%n %{$fg_bold[blue]%}%~${vcs_info_msg_0_}%{$fg_bold[blue]%}
+ $ %{$reset_color%}'
 
 # Aliases
 alias grep='grep --color'
@@ -108,3 +111,5 @@ alias ipy2='ipython2'
 alias ipy3='ipython3'
 alias cls='clear'
 alias gut='git'
+alias co='git checkout'
+alias cb='git checkout -b'

@@ -1,2 +1,2 @@
-PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/bin:~/.local/android-sdk/bin:~/.local/android-sdk/platform-tools
 export PATH

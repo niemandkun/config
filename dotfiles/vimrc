@@ -1,21 +1,50 @@
 " Vim config file "
 
-" Colorscheme
+" Plugins
+set rtp+=~/.vim/bundle/YouCompleteMe
+set rtp+=~/.vim/bundle/nerdtree
+
+" NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+
+" Close vim if only NERDTree is opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_key_list_stop_completion = ['<C-y>', '<Enter>']
+let g:ycm_confirm_extra_conf = 0
+
+set completeopt=menuone
+
+" Appearance
 syntax on
 colorscheme default
+set cursorline
 
-highlight Pmenu guibg=lightyellow ctermbg=228 ctermfg=black
-highlight PmenuSbar guibg=lightyellow ctermbg=228 ctermfg=black
-highlight PmenuSel guibg=lightgreen ctermbg=darkgreen ctermfg=black
-highlight PmenuThumb guibg=lightgreen ctermbg=darkgreen ctermfg=black
+highlight Pmenu ctermbg=lightgrey ctermfg=darkgrey
+highlight PmenuSbar ctermbg=lightgrey ctermfg=darkgrey
+highlight PmenuSel ctermbg=grey ctermfg=white
+highlight PmenuThumb ctermbg=grey ctermfg=white
 
-highlight NonText guifg=grey guibg=white ctermfg=238
-highlight SpecialKey guifg=grey guibg=white ctermfg=238
+highlight NonText ctermfg=grey
+highlight SpecialKey ctermfg=grey
 
-highlight VertSplit guifg=white guibg=grey
+highlight CursorLine cterm=NONE ctermbg=lightgrey ctermfg=NONE
 
-highlight StatusLine guifg=grey guibg=black
-highlight StatusLineNC guifg=grey guibg=black
+highlight VertSplit ctermfg=white ctermbg=darkgrey
+
+highlight StatusLine ctermfg=grey ctermbg=white
+highlight StatusLineNC ctermfg=grey ctermbg=white
+
+highlight TabLineFill ctermfg=grey ctermbg=grey
+highlight TabLine ctermfg=white ctermbg=grey cterm=NONE
+highlight TabLineSel ctermfg=grey ctermbg=white cterm=NONE
 
 " GUI settings
 if has("gui_running")
@@ -31,7 +60,7 @@ autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
 " set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
-set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
+set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:·
 
 " Editor settings
 set ignorecase
@@ -41,9 +70,10 @@ set list
 
 " Indentation settings
 set autoindent
-set tabstop=4
-set shiftwidth=4
 set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " Linebreak setting
 set iskeyword=@,48-57,_,192-255
@@ -57,31 +87,12 @@ set wildmode=list:longest,full
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Jedi configuration
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#force_py_version = 3
-set completeopt=menuone,longest
-inoremap <C-c> <Esc>
-
-" Clang_complete configuration
-let g:clang_library_path = '/usr/lib/libclang.so'
-let g:clang_complete_patterns = 1
-let g:clang_complete_macros = 1
-let g:clang_auto_select = 1
-let g:clang_snippets = 1
-
-if has("gui_running")
-    inoremap <C-Space> <C-x><C-u>
-else
-    inoremap <C-@> <C-x><C-u>
-endif
-
 " Highlight tasm syntax
 au BufRead,BufNewFile *.ASM set filetype=tasm
 
 " Highlight overlength lines
-" highlight OverLength ctermfg=red guifg=red
-" match OverLength /\%80v.*/
+highlight OverLength ctermfg=red guifg=red
+match OverLength /\%120v.*/
 
 " Split
 set splitbelow
@@ -99,44 +110,34 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " Map F12 to toggle tree
-imap <F12> <ESC>:NERDTreeToggle<CR>
-map <F12> <ESC>:NERDTreeToggle<CR>
+imap <F12> <Esc>:NERDTreeToggle<CR>
+map <F12> <Esc>:NERDTreeToggle<CR>
 
-" Map F2 to save file
-imap <F2> <Esc>:w<CR>
-map <F2> <Esc>:w<CR>
+" Map F2 to go to previous tab
+imap <F2> <Esc>:tabprev<CR>
+map <F2> <Esc>:tabprev<CR>
 
-" Map F3 to update file content
-imap <F3> <Esc>:read<CR>
-map <F3> <Esc>:read<CR>
+" Map F3 to go to next tab
+imap <F3> <Esc>:tabnext<CR>
+map <F3> <Esc>:tabnext<CR>
 
 " Map F4 to open new tab
-imap <F4> <Esc>:browse tabnew<CR>
-map <F4> <Esc>:browse tabnew<CR>
+imap <F4> <Esc>:tabnew<CR>
+map <F4> <Esc>:tabnew<CR>
 
-" Map F5 to go to previous tab
-imap <F5> <Esc> :tabprev <CR>i
-map <F5> :tabprev <CR>
+" Map F5 to compile project
+imap <F5> <Esc>:!./build/ya<CR>
+map <F5> <Esc>:!./build/ya<CR>
 
-" Map F6 to go to next tab
-imap <F6> <Esc> :tabnext <CR>i
-map <F6> :tabnext <CR>
+" Map F6 to run project
+imap <F6> <Esc>:!./ninja.sh<CR>
+map <F6> <Esc>:!./ninja.sh<CR>
 
-" Map F10 to open quit menu
-set wildmenu
-set wcm=<Tab>
-menu Exit.quit     :quit<CR>
-menu Exit.quit!    :quit!<CR>
-menu Exit.save     :exit<CR>
-map <F10> :emenu Exit.<Tab>
-
-" Map F9 to open encoding menu
-set wildmenu
-set wcm=<Tab>
-menu Encoding.koi8-r  :e ++enc=koi8-r<CR>
-menu Encoding.cp1251  :e ++enc=cp1251<CR>
-menu Encoding.cp1252  :e ++enc=cp1252<CR>
-menu Encoding.cp866   :e ++enc=cp866<CR>
-menu Encoding.ucs-2le :e ++enc=ucs-2le<CR>
-menu Encoding.utf-8   :e ++enc=utf-8<CR>
-map <F9> :emenu Encoding.<Tab>
+" Auto close brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O

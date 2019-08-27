@@ -1,19 +1,17 @@
 " Vim config file "
 
-" Plugins
-set rtp+=~/.vim/bundle/YouCompleteMe
-set rtp+=~/.vim/bundle/nerdtree
+set nocompatible
 
-" NERDTree
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-
-" Close vim if only NERDTree is opened
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Netrw
+filetype plugin on
+let g:netrw_banner=0
+let g:netrw_browse_split=0
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " YouCompleteMe
+set rtp+=~/.vim/bundle/YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_enable_diagnostic_signs = 0
@@ -25,7 +23,6 @@ set completeopt=menuone
 " Appearance
 syntax on
 colorscheme default
-set cursorline
 
 highlight Pmenu ctermbg=lightgrey ctermfg=darkgrey
 highlight PmenuSbar ctermbg=lightgrey ctermfg=darkgrey
@@ -46,13 +43,7 @@ highlight TabLineFill ctermfg=grey ctermbg=grey
 highlight TabLine ctermfg=white ctermbg=grey cterm=NONE
 highlight TabLineSel ctermfg=grey ctermbg=white cterm=NONE
 
-" GUI settings
-if has("gui_running")
-    set guioptions=m
-    set guifont=Ubuntu\ Mono\ 12
-    set lines=40
-    set columns=80
-endif
+highlight Search ctermbg=lightblue
 
 " Disable beeping and blinking
 set noeb vb t_vb=
@@ -64,7 +55,9 @@ set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:·
 
 " Editor settings
 set ignorecase
+set cursorline
 set incsearch
+set hlsearch
 set number
 set list
 
@@ -78,17 +71,16 @@ set shiftwidth=4
 " Linebreak setting
 set iskeyword=@,48-57,_,192-255
 set linebreak
-set dy=lastline
+set display=lastline
 
-" Wildmenu
+" Menu
+set path+=**
+set showcmd
 set wildmenu
 set wildmode=list:longest,full
 
 " Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Highlight tasm syntax
-au BufRead,BufNewFile *.ASM set filetype=tasm
 
 " Highlight overlength lines
 highlight OverLength ctermfg=red guifg=red
@@ -108,30 +100,6 @@ nnoremap <C-H> <C-W><C-H>
 set mouse=a
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
-
-" Map F12 to toggle tree
-imap <F12> <Esc>:NERDTreeToggle<CR>
-map <F12> <Esc>:NERDTreeToggle<CR>
-
-" Map F2 to go to previous tab
-imap <F2> <Esc>:tabprev<CR>
-map <F2> <Esc>:tabprev<CR>
-
-" Map F3 to go to next tab
-imap <F3> <Esc>:tabnext<CR>
-map <F3> <Esc>:tabnext<CR>
-
-" Map F4 to open new tab
-imap <F4> <Esc>:tabnew<CR>
-map <F4> <Esc>:tabnew<CR>
-
-" Map F5 to compile project
-imap <F5> <Esc>:!./build/ya<CR>
-map <F5> <Esc>:!./build/ya<CR>
-
-" Map F6 to run project
-imap <F6> <Esc>:!./ninja.sh<CR>
-map <F6> <Esc>:!./ninja.sh<CR>
 
 " Auto close brackets
 inoremap " ""<left>

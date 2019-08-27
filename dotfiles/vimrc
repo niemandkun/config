@@ -10,40 +10,34 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 
-" YouCompleteMe
-set rtp+=~/.vim/bundle/YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_enable_diagnostic_highlighting = 1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_key_list_stop_completion = ['<C-y>', '<Enter>']
-let g:ycm_confirm_extra_conf = 0
-
 set completeopt=menuone
 
 " Appearance
 syntax on
-colorscheme default
+set background=dark
+set t_Co=256
+colorscheme desert
 
-highlight Pmenu ctermbg=lightgrey ctermfg=darkgrey
-highlight PmenuSbar ctermbg=lightgrey ctermfg=darkgrey
-highlight PmenuSel ctermbg=grey ctermfg=white
-highlight PmenuThumb ctermbg=grey ctermfg=white
+highlight Pmenu         ctermbg=7   ctermfg=0
+highlight PmenuSbar     ctermbg=7   ctermfg=0
+highlight PmenuSel      ctermbg=12  ctermfg=7
+highlight PmenuThumb    ctermbg=12  ctermfg=7
 
-highlight NonText ctermfg=grey
-highlight SpecialKey ctermfg=grey
+highlight NonText                   ctermfg=8
+highlight SpecialKey                ctermfg=8
 
-highlight CursorLine cterm=NONE ctermbg=lightgrey ctermfg=NONE
+highlight VertSplit     ctermbg=8   ctermfg=0
+highlight StatusLine    ctermbg=7   ctermfg=0   cterm=NONE
+highlight StatusLineNC  ctermbg=8   ctermfg=0   cterm=NONE
 
-highlight VertSplit ctermfg=white ctermbg=darkgrey
+highlight CursorLine    ctermbg=7   ctermfg=0   cterm=NONE
 
-highlight StatusLine ctermfg=grey ctermbg=white
-highlight StatusLineNC ctermfg=grey ctermbg=white
+highlight TabLineFill   ctermbg=8   ctermfg=8
+highlight TabLine       ctermbg=8   ctermfg=0   cterm=NONE
+highlight TabLineSel    ctermbg=7   ctermfg=0   cterm=NONE
 
-highlight TabLineFill ctermfg=grey ctermbg=grey
-highlight TabLine ctermfg=white ctermbg=grey cterm=NONE
-highlight TabLineSel ctermfg=grey ctermbg=white cterm=NONE
-
-highlight Search ctermbg=lightblue
+highlight Search        ctermbg=0   ctermfg=3   cterm=bold,inverse
+highlight IncSearch     ctermbg=0   ctermfg=3   cterm=bold,inverse
 
 " Disable beeping and blinking
 set noeb vb t_vb=
@@ -55,7 +49,6 @@ set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:·
 
 " Editor settings
 set ignorecase
-set cursorline
 set incsearch
 set hlsearch
 set number
@@ -90,16 +83,8 @@ match OverLength /\%120v.*/
 set splitbelow
 set splitright
 
-" Split navigation keys
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Middle mouse button behaviour
-set mouse=a
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
+" Disable mouse
+set mouse=
 
 " Auto close brackets
 inoremap " ""<left>

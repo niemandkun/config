@@ -2,6 +2,8 @@
 
 set nocompatible
 
+set clipboard=unnamed
+
 " Netrw
 filetype plugin on
 let g:netrw_banner=0
@@ -14,9 +16,9 @@ set completeopt=menuone
 
 " Appearance
 syntax on
+set t_Co=16
+colorscheme slate
 set background=dark
-set t_Co=256
-colorscheme desert
 
 highlight Pmenu         ctermbg=7   ctermfg=0
 highlight PmenuSbar     ctermbg=7   ctermfg=0
@@ -45,7 +47,7 @@ autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
 " set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
-set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:·
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:·,nbsp:_
 
 " Editor settings
 set ignorecase
@@ -79,18 +81,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 highlight OverLength ctermfg=red guifg=red
 match OverLength /\%120v.*/
 
-" Split
-set splitbelow
-set splitright
-
 " Disable mouse
 set mouse=
 
-" Auto close brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" Split
+set splitbelow
+set splitright

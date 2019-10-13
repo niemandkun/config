@@ -12,7 +12,18 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 
-set completeopt=menuone
+" Autocomplete
+set completeopt=menuone,noinsert
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+function! InsertTabWrapper()
+   let col = col('.') - 1
+   if !col || getline('.')[col - 1] !~ '\k'
+       return "\<tab>"
+   else
+       return "\<c-n>"
+   endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Appearance
 syntax on

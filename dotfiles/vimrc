@@ -13,7 +13,7 @@ let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " Autocomplete
-set completeopt=menuone,noinsert
+set completeopt=menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 function! InsertTabWrapper()
    let col = col('.') - 1

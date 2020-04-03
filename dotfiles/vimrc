@@ -27,7 +27,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Appearance
 syntax on
-colorscheme wombat256mod
+colorscheme vs2019dark
 
 " Disable beeping and blinking
 set noeb vb t_vb=
@@ -88,3 +88,10 @@ set mouse=
 " Split
 set splitbelow
 set splitright
+
+" C++ highlight
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+let c_no_curly_error=1

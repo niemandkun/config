@@ -27,45 +27,35 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Appearance
 syntax on
-set t_Co=16
-colorscheme slate
-set background=dark
-
-highlight Pmenu         ctermbg=7   ctermfg=0
-highlight PmenuSbar     ctermbg=7   ctermfg=0
-highlight PmenuSel      ctermbg=12  ctermfg=7
-highlight PmenuThumb    ctermbg=12  ctermfg=7
-
-highlight NonText                   ctermfg=8
-highlight SpecialKey                ctermfg=8
-
-highlight VertSplit     ctermbg=8   ctermfg=0
-highlight StatusLine    ctermbg=7   ctermfg=0   cterm=NONE
-highlight StatusLineNC  ctermbg=8   ctermfg=0   cterm=NONE
-
-highlight CursorLine    ctermbg=7   ctermfg=0   cterm=NONE
-
-highlight TabLineFill   ctermbg=8   ctermfg=8
-highlight TabLine       ctermbg=8   ctermfg=0   cterm=NONE
-highlight TabLineSel    ctermbg=7   ctermfg=0   cterm=NONE
-
-highlight Search        ctermbg=0   ctermfg=3   cterm=bold,inverse
-highlight IncSearch     ctermbg=0   ctermfg=3   cterm=bold,inverse
+colorscheme vs2019dark
 
 " Disable beeping and blinking
 set noeb vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
 " Show non printing characters
-" set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·
-set listchars=tab:>-,trail:~,extends:>,precedes:<,space:·,nbsp:_
+set listchars=eol:¬,tab:>\ ,trail:~,extends:>,precedes:<,space:·,nbsp:_
 
 " Editor settings
+set cursorline
 set ignorecase
 set incsearch
 set hlsearch
+set nowrap
 set number
 set list
+
+" Status line
+set laststatus=2
+set statusline=
+set statusline+=%f\ "
+set statusline+=%r
+set statusline+=%m
+set statusline+=%=
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %11{&fileformat}
+set statusline+=\ %11l,%-11c
+set statusline+=\ %P
 
 " Indentation settings
 set autoindent
@@ -98,3 +88,10 @@ set mouse=
 " Split
 set splitbelow
 set splitright
+
+" C++ highlight
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+let c_no_curly_error=1

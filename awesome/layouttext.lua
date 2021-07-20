@@ -14,7 +14,13 @@ local layoutbox = { mt = {} }
 
 local boxes = nil
 
-local names = { max = "s", tilebottom = "h", tile = "v" }
+local names = {
+    max = "s",
+    tilebottom = "h",
+    tile = "v",
+    floating = "f",
+    flow = "my",
+}
 
 local function update(w, screen)
     screen = get_screen(screen)

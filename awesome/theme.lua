@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "Ubuntu Bold 10"
+theme.font          = "Noto Sans Bold 11"
 
 theme.bg_normal     = "#00000000"
 theme.bg_focus      = "#00000000"
@@ -25,9 +25,10 @@ theme.fg_urgent     = "#aa0000"
 theme.fg_minimize   = "#999999"
 
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(0)
+theme.border_width  = dpi(4)
+
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_focus  = "#0097a7"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -88,7 +89,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/usr/share/backgrounds/ubuntu-gnome/sochi_krasnaya_polyana_mountains_by_alexander_lyubavin.jpg"
+theme.wallpaper = "/home/niemandkun/Pictures/roses.jpeg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
@@ -116,7 +117,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Setup tasklist:
 theme.tasklist_disable_icon = true
 theme.tasklist_disable_task_name = false
-theme.tasklist_align = "left"
+theme.tasklist_align = "center"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

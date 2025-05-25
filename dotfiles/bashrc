@@ -56,8 +56,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source /usr/share/git/git-prompt.sh
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \$\[\e[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u@\h \[\e[1;34m\]\w\[\e[1;32m\]$(__git_ps1 " (%s)") \[\e[1;34m\]\$\[\e[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

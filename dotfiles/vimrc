@@ -33,10 +33,10 @@ if has("gui_running")
     " set guifont=Cascadia\ Mono\ 10
     set guifont=Cascadia\ Mono:h10:cANSI
     set guioptions=cdg
-    colorscheme slate
+    colorscheme vscode-dark
 else
     set t_Co=256
-    colorscheme slate
+    colorscheme quiet
     set background=dark
 endif
 
@@ -203,6 +203,7 @@ augroup END
 
 let g:lsp_use_event_queue = 1
 let g:lsp_use_native_client = 1
+let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_highlights_enabled = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
@@ -215,6 +216,6 @@ let g:lsp_document_code_action_signs_hint = {'text': 'A '}
 
 highlight LspErrorHighlight gui=undercurl guisp=red ctermbg=red
 highlight LspWarningHighlight gui=undercurl guisp=yellow ctermbg=yellow
-highlight LspInformationHighlight gui=undercurl guisp=green ctermbg=green
-highlight LspHintHighlight gui=undercurl guisp=green ctermbg=green
+highlight LspInformationHighlight gui=undercurl guisp=blue ctermbg=blue
+highlight LspHintHighlight gui=undercurl guisp=blue ctermbg=blue
 

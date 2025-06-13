@@ -26,6 +26,10 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
+" Switch buffers
+nnoremap <c-tab> :bnext<cr>
+nnoremap <c-s-tab> :bNext<cr>
+
 " Appearance
 syntax on
 
@@ -181,7 +185,7 @@ autocmd User lsp_setup call lsp#register_server({
 function! s:on_lsp_buffer_enabled() abort
     setlocal tagfunc=lsp#tagfunc
     setlocal omnifunc=lsp#complete
-    setlocal signcolumn=auto
+    setlocal signcolumn=yes
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)

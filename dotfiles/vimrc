@@ -78,14 +78,8 @@ set wrapmargin=0
 set path+=**
 set showcmd
 set wildmenu
-set wildmode=list:longest,full
-
-" Remove trailing whitespaces
-" autocmd BufWritePre * :%s/\s\+$//e
-
-" Highlight overlength lines
-" highlight OverLength ctermfg=red guifg=red
-" match OverLength /\%120v.*/
+set wildmode=full:lastused
+set wildoptions=pum
 
 " Disable mouse
 set mouse=

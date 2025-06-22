@@ -34,13 +34,13 @@ nnoremap <c-s-tab> :bNext<cr>
 syntax on
 
 if has("gui_running")
-    " set guifont=Cascadia\ Mono\ 10
-    set guifont=Cascadia\ Mono:h10:cANSI
+    set guifont=Cascadia\ Mono\ 10
+    " set guifont=Cascadia\ Mono:h10:cANSI
     set guioptions=cdg
     colorscheme vscode-dark
 else
     set t_Co=256
-    colorscheme quiet
+    colorscheme vscode-dark
     set background=dark
 endif
 
@@ -55,6 +55,7 @@ autocmd GUIEnter * set vb t_vb=
 set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:.,nbsp:_
 
 " Editor settings
+set scrolloff=8
 set cursorline
 set ignorecase
 set incsearch
@@ -78,7 +79,7 @@ set wrapmargin=0
 set path+=**
 set showcmd
 set wildmenu
-set wildmode=full:lastused
+set wildmode=lastused:full
 set wildoptions=pum
 
 " Disable mouse
@@ -172,7 +173,7 @@ packadd vim-lsp
 
 autocmd User lsp_setup call lsp#register_server({
     \ 'name': 'lua',
-    \ 'cmd': {server_info->['C:/Users/niema/vimfiles/lua-language-server-3.14.0/bin/lua-language-server.exe']},
+    \ 'cmd': {server_info->['/bin/lua-language-server']},
     \ 'allowlist': ['lua'],
     \ })
 

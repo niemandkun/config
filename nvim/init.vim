@@ -1,0 +1,167 @@
+" Neovim config file "
+
+set nocompatible
+
+set clipboard=unnamed
+
+" Netrw
+filetype plugin on
+let g:netrw_banner=0
+let g:netrw_browse_split=0
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_winsize=50
+
+" Autocomplete
+set completeopt=menuone
+set complete=.,w,b,u,i
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+" Switch buffers
+nnoremap <c-tab> :bnext<cr>
+nnoremap <c-s-tab> :bNext<cr>
+
+" Appearance
+syntax on
+
+if has("gui_running")
+    set guifont=Cascadia\ Mono:h10
+    set linespace=1
+    colorscheme vscode-dark
+else
+    set t_Co=256
+    colorscheme vscode-dark
+    set background=dark
+endif
+
+set backspace=2
+set backspace=indent,eol,start
+
+" Disable beeping and blinking
+set noeb vb t_vb=
+autocmd GUIEnter * set vb t_vb=
+
+" Show non printing characters
+set listchars=tab:>\ ,trail:~,extends:>,precedes:<,space:.,nbsp:_
+
+" Editor settings
+set scrolloff=8
+set cursorline
+set ignorecase
+set incsearch
+set nohlsearch
+set number
+set list
+
+" Status line
+set noshowmode
+set laststatus=2
+set statusline=%<[%{GetEditorMode()}]\ %t\ %q%w%m%r%=ln\ %l,\ col\ %c\ %{GetTabType()}\ %{&enc}\ %{&ff}\ %{&ft}\ %P
+
+" Linebreak setting
+set iskeyword=@,48-57,_,192-255
+set nowrap
+set display=lastline
+set textwidth=0
+set wrapmargin=0
+
+" Menu
+set path+=**
+set showcmd
+set wildmenu
+set wildmode=lastused:full
+set wildoptions=pum
+
+" Disable mouse
+set mouse=
+
+" Split
+set splitbelow
+set splitright
+
+" Indentation settings
+set autoindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" By default, use tabs characters.
+set noexpandtab
+
+" Determines whether to use spaces or tabs on the current buffer.
+function! TabsOrSpaces()
+    if getfsize(bufname("%")) > 256000
+        return
+    endif
+
+    let numTabs=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^\\t"'))
+    let numSpaces=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^ "'))
+
+    if numTabs < numSpaces
+        setlocal expandtab
+    endif
+endfunction
+
+" Call the function after opening a buffer
+autocmd VimEnter,BufEnter,BufReadPost * call TabsOrSpaces()
+
+function! GetTabType()
+    if &expandtab
+        return 'space'
+    else
+        return 'tab'
+    endif
+endfunction
+
+function! GetEditorMode()
+    let l:mode=mode()
+    if l:mode ==# "n"
+        return "NORMAL"
+    elseif l:mode ==# "v" || l:mode ==# "V" || l:mode ==# ""
+        return "VISUAL"
+    elseif l:mode ==# "i"
+        return "INSERT"
+    elseif l:mode ==# "R"
+        return "REPLACE"
+    elseif l:mode ==# "s" || l:mode ==# "S" || l:mode ==# ""
+        return "SELECT"
+    elseif l:mode ==# "t"
+        return "TERMINAL"
+    elseif l:mode ==# "c" || l:mode ==# "r"
+        return "COMMAND"
+    elseif l:mode ==# "!" || l:mode ==# "t"
+        return "SHELL"
+    endif
+    return ""
+endfunction
+
+" Defold
+autocmd BufNewFile,BufRead *.script set filetype=lua
+autocmd BufNewFile,BufRead *.gui_script set filetype=lua
+autocmd BufNewFile,BufRead *.render_script set filetype=lua
+autocmd BufNewFile,BufRead *.editor_script set filetype=lua
+
+" Autosave session on exit
+let g:session = '~/.nvimsession'
+
+function! SaveSession()
+    if v:this_session != ''
+        execute 'mksession! ' . v:this_session
+    else
+        execute 'mksession! ' . g:session
+    endif
+endfunction
+
+autocmd VimLeavePre * call SaveSession()
+
+lua require('lsp')
+

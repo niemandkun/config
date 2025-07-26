@@ -37,6 +37,8 @@ vim.opt.listchars = { tab = '> ', trail = '~', extends = '>', precedes = '<', sp
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'no'
+vim.opt.foldcolumn = '0'
+vim.opt.numberwidth = 4
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true

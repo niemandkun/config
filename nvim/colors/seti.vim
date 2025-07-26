@@ -6,7 +6,7 @@ let s:background = "1d1d1d"
 let s:comment = "787878"
 let s:line = "282828"
 let s:selection = "4a4a4a"
-let s:window = "a8a8a8"
+let s:window = "1d1d1d"
 
 let s:aqua = "55dbbe"
 let s:blue = "55b5db"
@@ -237,11 +237,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:background, s:blue, "")
 	call <SID>X("CurSearch", s:background, s:blue, "")
-	call <SID>X("TabLine", s:window, s:background, "reverse")
-	call <SID>X("TabLineFill", s:window, s:background, "reverse")
-	call <SID>X("TabLineSel", s:foreground, s:background, "")
-	call <SID>X("StatusLine", s:background, s:foreground, "reverse")
-	call <SID>X("StatusLineNC", s:background, s:selection, "reverse")
+	call <SID>X("TabLine", s:selection, s:window, "")
+	call <SID>X("TabLineFill", s:foreground, s:window, "")
+	call <SID>X("TabLineSel", s:comment, s:window, "")
+	call <SID>X("StatusLine", s:window, s:comment, "reverse")
+	call <SID>X("StatusLineNC", s:window, s:selection, "reverse")
+	call <SID>X("StatusLineError", s:window, s:red, "reverse")
+	call <SID>X("StatusLineWarn", s:window, s:yellow, "reverse")
+	call <SID>X("StatusLineInfo", s:window, s:blue, "reverse")
+	call <SID>X("StatusLineHint", s:window, s:selection, "reverse")
 	call <SID>X("VertSplit", s:selection, s:background, "none")
 	call <SID>X("WinSeparator", s:selection, s:background, "none")
 	call <SID>X("Visual", "", s:selection, "")

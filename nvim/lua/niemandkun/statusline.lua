@@ -2,7 +2,9 @@
 
 -- Status line
 
-local separator = " "
+local start = " "
+local separator = "  "
+local ending = " "
 
 local modes = {
     ["n"] = "NORMAL",
@@ -65,39 +67,26 @@ local function get_filename()
 end
 
 local function get_lsp_info()
-    local count = {}
-    local levels = {
-        errors = "Error",
-        warnings = "Warn",
-        info = "Info",
-        hints = "Hint",
-    }
+    local levels = { "Error", "Warn", "Info", "Hint" }
+    local info = {}
+    local first = true
 
-    for k, level in pairs(levels) do
-        count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
-    end
-
-    local info = ""
-
-    -- https://unicodes.jessetane.com/
-    if count.errors > 0 then
-        --    ❌
-        info = info .. " " .. count.errors
-    end
-    if count.warnings > 0 then
-        --       ⚠️
-        info = info .. " " .. count.warnings
-    end
-    if count.hints > 0 then
-        --   💡
-        info = info .. " " .. count.hints
-    end
-    if count.info > 0 then
-        --     🔎
-        info = info .. " " .. count.info
+    for _, level in ipairs(levels) do
+        local count = vim.tbl_count(vim.diagnostic.get(0, { severity = level }))
+        if count > 0 or level == "Error" or level == "Warn" then
+            if first then
+                first = false
+            else
+                table.insert(info, " ")
+            end
+            table.insert(info, "%#StatusLine")
+            table.insert(info, level)
+            table.insert(info, "#%#StatusLine# ")
+            table.insert(info, count)
+        end
     end
 
-    return info
+    return table.concat(info)
 end
 
 local function get_selection_info()
@@ -109,13 +98,19 @@ local function get_selection_info()
 end
 
 local function build_statusline(tokens)
-    local filtered = {}
+    local filtered = { "%<", start }
+    local first = true
     for _, token in ipairs(tokens) do
         if token ~= "" then
+            if first then
+                first = false
+            else
+                table.insert(filtered, separator)
+            end
             table.insert(filtered, token)
-            table.insert(filtered, separator)
         end
     end
+    table.insert(filtered, ending)
     return table.concat(filtered)
 end
 
@@ -123,12 +118,11 @@ Statusline = {}
 
 function Statusline.active()
     return build_statusline({
-        "%<",
         get_editor_mode(),
         get_filename(),
         get_lsp_info(),
         "%=",
-        "Ln %l, Col %c",
+        "%l:%c",
         get_selection_info(),
         get_tab_type(),
         get_fileencoding(),
@@ -139,14 +133,12 @@ end
 
 function Statusline.inactive()
     return build_statusline({
-        "%<",
         "%t",
     })
 end
 
 function Statusline.tree()
     return build_statusline({
-        "%<",
         "NETRW",
     })
 end

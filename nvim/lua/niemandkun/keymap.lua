@@ -1,5 +1,7 @@
 -- Neovim config file
 
+local gui_running = vim.fn.has('gui_running') == 1
+
 -- Quickly switch between buffers
 vim.keymap.set('n', '<c-tab>', ':bnext<cr>')
 vim.keymap.set('n', '<c-s-tab>', ':bNext<cr>')
@@ -41,3 +43,8 @@ vim.keymap.set('c', '<Up>', wildmenu_wrapper('<Left>', '<Up>'), { expr = true })
 vim.keymap.set('c', '<Down>', wildmenu_wrapper('<Right>', '<Down>'), { expr = true })
 vim.keymap.set('c', '<Left>', wildmenu_wrapper('<Up>', '<Left>'), { expr = true })
 vim.keymap.set('c', '<Right>', wildmenu_wrapper(' <bs><Tab>', '<Right>'), { expr = true })
+
+-- Use <S-Insert> to paste from system clipboard
+if gui_running then
+    vim.keymap.set({"i", "c"}, "<S-Insert>", "<C-R>+")
+end

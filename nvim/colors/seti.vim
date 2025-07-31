@@ -1,20 +1,78 @@
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
-" Seti
-let s:foreground = "d6d6d6"
-let s:background = "1d1d1d"
-let s:comment = "787878"
-let s:line = "282828"
-let s:selection = "4a4a4a"
-let s:window = "1d1d1d"
+let s:background = 0
+let s:colors = 0
 
-let s:aqua = "55dbbe"
-let s:blue = "55b5db"
-let s:green = "9fca56"
-let s:orange = "d98657"
-let s:purple = "a074c4"
-let s:red = "cd3f45"
-let s:yellow = "e6cd69"
+let s:keyword_style = "bold"
+"let s:keyword_style = ""
+
+if s:background == 0
+	" One Dark
+	let s:foreground = "abb2bf"
+	let s:background = "282c34"
+	let s:comment = "5d636f"
+	let s:window = "282c33"
+	let s:cursor = "74ade8"
+	let s:line = "2d323b"
+	let s:selection = "394c62"
+	let s:lineNr = "4e5a5f"
+	let s:cursorLineNr = "d0d4da"
+
+elseif s:background == 1
+	" One Dark - desaturated
+	let s:foreground = "b5b5b5"
+	let s:background = "282828"
+	let s:comment = "5f5f5f"
+	let s:window = "282828"
+	let s:cursor = "aeaeae"
+	let s:line = "2e2e2e"
+	let s:selection = "454545"
+	let s:lineNr = "535353"
+	let s:cursorLineNr = "d0d0d0"
+
+elseif s:background == 2
+	" Seti
+	let s:foreground = "d6d6d6"
+	let s:background = "1d1d1d"
+	let s:comment = "787878"
+	let s:window = "1d1d1d"
+	let s:cursor = "aeaeae"
+	let s:line = "282828"
+	let s:selection = "4a4a4a"
+	let s:lineNr = "4a4a4a"
+	let s:cursorLineNr = "d6d6d6"
+endif
+
+if s:colors == 0
+	" One Dark
+	let s:aqua = "56b6c2"
+	let s:blue = "61afef"
+	let s:green = "98c379"
+	let s:orange = "bf956a"
+	let s:purple = "c678dd"
+	let s:red = "e06c75"
+	let s:yellow = "e5c07b"
+
+elseif s:colors == 1
+	" One Dark - desaturated
+	let s:aqua = "6eb0b4"
+	let s:blue = "73a9de"
+	let s:green = "9fbb75"
+	let s:orange = "bf915f"
+	let s:purple = "b473c4"
+	let s:red = "d06e6c"
+	let s:yellow = "dfbd79"
+
+elseif s:colors == 2
+	" Seti
+	let s:aqua = "55dbbe"
+	let s:blue = "55b5db"
+	let s:green = "9fca56"
+	let s:orange = "d98657"
+	let s:purple = "a074c4"
+	let s:red = "cd3f45"
+	let s:yellow = "e6cd69"
+endif
 
 set background=dark
 hi clear
@@ -232,22 +290,22 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, s:background, "")
-	call <SID>X("LineNr", s:selection, "", "")
-	call <SID>X("NonText", s:selection, "", "")
+	call <SID>X("LineNr", s:lineNr, "", "")
+	call <SID>X("NonText", s:lineNr, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
-	call <SID>X("Search", s:background, s:blue, "")
-	call <SID>X("CurSearch", s:background, s:blue, "")
-	call <SID>X("TabLine", s:selection, s:window, "")
+	call <SID>X("Search", s:background, s:yellow, "")
+	call <SID>X("CurSearch", s:background, s:yellow, "")
+	call <SID>X("TabLine", s:lineNr, s:window, "")
 	call <SID>X("TabLineFill", s:foreground, s:window, "")
-	call <SID>X("TabLineSel", s:comment, s:window, "")
-	call <SID>X("StatusLine", s:window, s:comment, "reverse")
-	call <SID>X("StatusLineNC", s:window, s:selection, "reverse")
+	call <SID>X("TabLineSel", s:foreground, s:window, "none")
+	call <SID>X("StatusLine", s:window, s:foreground, "reverse")
+	call <SID>X("StatusLineNC", s:window, s:lineNr, "reverse")
 	call <SID>X("StatusLineError", s:window, s:red, "reverse")
 	call <SID>X("StatusLineWarn", s:window, s:yellow, "reverse")
 	call <SID>X("StatusLineInfo", s:window, s:blue, "reverse")
-	call <SID>X("StatusLineHint", s:window, s:selection, "reverse")
-	call <SID>X("VertSplit", s:selection, s:background, "none")
-	call <SID>X("WinSeparator", s:selection, s:background, "none")
+	call <SID>X("StatusLineHint", s:window, s:comment, "reverse")
+	call <SID>X("VertSplit", s:lineNr, s:background, "none")
+	call <SID>X("WinSeparator", s:lineNr, s:background, "none")
 	call <SID>X("Visual", "", s:selection, "")
 	call <SID>X("Directory", s:blue, "", "")
 	call <SID>X("ModeMsg", s:green, "", "")
@@ -261,7 +319,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("QuickFixLine", s:aqua, "", "")
 	if version >= 700
 		call <SID>X("CursorLine", "", s:line, "none")
-		call <SID>X("CursorLineNr", s:foreground, s:line, "")
+		call <SID>X("CursorLineNr", s:cursorLineNr, s:line, "")
 		call <SID>X("CursorColumn", "", s:line, "none")
 		call <SID>X("PMenu", s:foreground, s:selection, "none")
 		call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
@@ -285,10 +343,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Todo", s:comment, "", "bold")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:blue, "", "none")
-	call <SID>X("Statement", s:purple, "", "bold")
+	call <SID>X("Statement", s:purple, "", s:keyword_style)
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Delimiter", s:foreground, "", "")
-	call <SID>X("Keyword", s:purple, "", "bold")
+	call <SID>X("Keyword", s:purple, "", s:keyword_style)
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:blue, "", "")
 	call <SID>X("Function", s:yellow, "", "")
@@ -298,29 +356,29 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("String", s:orange, "", "")
 	call <SID>X("Character", s:orange, "", "")
 	call <SID>X("Special", s:yellow, "", "")
-	call <SID>X("PreProc", s:purple, "", "bold")
+	call <SID>X("PreProc", s:purple, "", s:keyword_style)
 	call <SID>X("Operator", s:foreground, "", "none")
 	call <SID>X("Type", s:aqua, "", "none")
-	call <SID>X("Define", s:purple, "", "bold")
-	call <SID>X("Include", s:purple, "", "bold")
+	call <SID>X("Define", s:purple, "", s:keyword_style)
+	call <SID>X("Include", s:purple, "", s:keyword_style)
 
 	" Treesitter
 	call <SID>X("@variable", s:foreground, "", "")
 
 	" Vim Highlighting
-	call <SID>X("vimCommand", s:purple, "", "bold")
+	call <SID>X("vimCommand", s:purple, "", s:keyword_style)
 	call <SID>X("vimVar", s:foreground, "", "")
 
 	" C Highlighting
 	call <SID>X("cType", s:blue, "", "")
 	call <SID>X("cStorageClass", s:blue, "", "")
-	call <SID>X("cConditional", s:purple, "", "bold")
-	call <SID>X("cRepeat", s:purple, "", "bold")
+	call <SID>X("cConditional", s:purple, "", s:keyword_style)
+	call <SID>X("cRepeat", s:purple, "", s:keyword_style)
 
 	" C# Highlighting
-	call <SID>X("csAccessModifier", s:purple, "", "bold")
-	call <SID>X("csModifier", s:purple, "", "bold")
-	call <SID>X("csClass", s:purple, "", "bold")
+	call <SID>X("csAccessModifier", s:purple, "", s:keyword_style)
+	call <SID>X("csModifier", s:purple, "", s:keyword_style)
+	call <SID>X("csClass", s:purple, "", s:keyword_style)
 	call <SID>X("csType", s:blue, "", "")
 
 	" PHP Highlighting
@@ -345,10 +403,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Python Highlighting
 	call <SID>X("pythonInclude", s:yellow, "", "")
-	call <SID>X("pythonStatement", s:purple, "", "bold")
-	call <SID>X("pythonConditional", s:purple, "", "bold")
-	call <SID>X("pythonRepeat", s:purple, "", "bold")
-	call <SID>X("pythonException", s:purple, "", "bold")
+	call <SID>X("pythonStatement", s:purple, "", s:keyword_style)
+	call <SID>X("pythonConditional", s:purple, "", s:keyword_style)
+	call <SID>X("pythonRepeat", s:purple, "", s:keyword_style)
+	call <SID>X("pythonException", s:purple, "", s:keyword_style)
 	call <SID>X("pythonFunction", s:yellow, "", "")
 	call <SID>X("pythonBuiltin", s:yellow, "", "")
 

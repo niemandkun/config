@@ -61,12 +61,34 @@ local function get_fileencoding()
 end
 
 local function get_filename()
-    local modified = vim.bo.modified and "*" or ""
-    local readonly = (vim.bo.readonly or not vim.bo.modifiable) and " (readonly)" or ""
-    return string.format("%s%s%s", "%t", modified, readonly)
+    local modified = false
+    local readonly = false
+    if vim.bo.buftype ~= "terminal" then
+        modified = vim.bo.modified
+        readonly = vim.bo.readonly or not vim.bo.modifiable
+    end
+    return string.format("%s%s%s", "%t", modified and "*" or "", readonly and " (readonly)" or "")
+end
+
+local function is_buf_attached_to_lsp()
+    local current_buf = vim.api.nvim_get_current_buf()
+    for _, lsp_client in ipairs(vim.lsp.get_clients()) do
+        if lsp_client.attached_buffers then
+            for buf, is_attached in pairs(lsp_client.attached_buffers) do
+                if current_buf == buf and is_attached then
+                    return true
+                end
+            end
+        end
+    end
+    return false
 end
 
 local function get_lsp_info()
+    if not is_buf_attached_to_lsp() then
+        return ""
+    end
+
     local levels = { "Error", "Warn", "Info", "Hint" }
     local info = {}
     local first = true

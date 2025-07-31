@@ -11,6 +11,12 @@ vim.lsp.config['csharp-ls'] = {
 	root_markers = { '*.csproj' },
 }
 
+vim.lsp.config['rust-analyzer'] = {
+	cmd = { 'rust-analyzer' },
+	filetypes = { 'rust' },
+	root_markers = { { 'rust-project.json', 'Cargo.toml' }, '.git' },
+}
+
 local vscode = vim.fn.exists('vscode') == 1
 local show_signcolumn = false
 
@@ -37,4 +43,5 @@ if not vscode then
 
 	vim.lsp.enable('luals')
 	vim.lsp.enable('csharp-ls')
+	vim.lsp.enable('rust-analyzer')
 end

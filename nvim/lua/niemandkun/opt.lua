@@ -18,7 +18,7 @@ vim.opt.background = 'dark'
 -- Gui font
 if gui_running then
     vim.o.guifont = 'Cascadia Mono:h10'
-    vim.o.linespace = 1
+    vim.o.linespace = 3
 end
 
 -- Use system clipboard for yank and paste
@@ -33,18 +33,25 @@ vim.opt.visualbell = false
 
 -- Editor settings
 vim.opt.backspace = { 'indent', 'eol', 'start' }
-vim.opt.listchars = { tab = '> ', trail = '~', extends = '>', precedes = '<', space = '.', nbsp = '_' }
-
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'no'
 vim.opt.foldcolumn = '0'
 vim.opt.numberwidth = 4
 vim.opt.cursorline = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
 vim.opt.number = true
+
+-- Show whitespaces
 vim.opt.list = true
+vim.opt.listchars = { tab = '> ', trail = '~', extends = '>', precedes = '<', space = '.', nbsp = '_' }
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = false
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
+
+-- Confirm exit if there is unsaved files
+vim.opt.confirm = true
 
 -- Indentation settings
 vim.opt.autoindent = true

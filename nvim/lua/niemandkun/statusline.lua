@@ -103,7 +103,7 @@ local function get_lsp_info()
             end
             table.insert(info, "%#StatusLine")
             table.insert(info, level)
-            table.insert(info, "#%#StatusLine# ")
+            table.insert(info, "#●%#StatusLine# ")
             table.insert(info, count)
         end
     end

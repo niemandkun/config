@@ -12,7 +12,7 @@ local function detect_tabs()
     local num_spaces = vim.fn.len(vim.fn.filter(vim.fn.getbufline(vim.fn.bufname("%"), 1, 250), 'v:val =~ "^ "'))
 
     if num_tabs < num_spaces then
-        vim.opt.expandtab = true
+        vim.opt_local.expandtab = true
     end
 end
 
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-    callback = function() vim.opt.filetype = 'lua' end,
+    callback = function() vim.opt_local.filetype = 'lua' end,
     pattern = { '*.script', '*.gui_script', '*.render_script', '*.editor_script' },
     group = vimrc,
 })

@@ -1,84 +1,30 @@
-" Hex colour conversion functions borrowed from the theme "Desert256""
+" One Dark
 
-let s:background = 0
-let s:colors = 0
+let s:foreground = "abb2bf"
+let s:background = "282c34"
+let s:comment = "5d636f"
+let s:window = "282c34"
+let s:line = "2d323b"
+let s:float = "2f343e"
+let s:selection = "394c62"
+let s:lineNr = "4e5a5f"
+let s:cursorLineNr = "d0d4da"
+let s:search = "597ca3"
+let s:curSearch = "577fa9"
 
-let s:keyword_style = "bold"
-"let s:keyword_style = ""
-
-if s:background == 0
-	" One Dark
-	let s:foreground = "abb2bf"
-	let s:background = "282c34"
-	let s:comment = "5d636f"
-	let s:window = "282c33"
-	let s:cursor = "74ade8"
-	let s:line = "2d323b"
-	let s:selection = "394c62"
-	let s:lineNr = "4e5a5f"
-	let s:cursorLineNr = "d0d4da"
-
-elseif s:background == 1
-	" One Dark - desaturated
-	let s:foreground = "b5b5b5"
-	let s:background = "282828"
-	let s:comment = "5f5f5f"
-	let s:window = "282828"
-	let s:cursor = "aeaeae"
-	let s:line = "2e2e2e"
-	let s:selection = "454545"
-	let s:lineNr = "535353"
-	let s:cursorLineNr = "d0d0d0"
-
-elseif s:background == 2
-	" Seti
-	let s:foreground = "d6d6d6"
-	let s:background = "1d1d1d"
-	let s:comment = "787878"
-	let s:window = "1d1d1d"
-	let s:cursor = "aeaeae"
-	let s:line = "282828"
-	let s:selection = "4a4a4a"
-	let s:lineNr = "4a4a4a"
-	let s:cursorLineNr = "d6d6d6"
-endif
-
-if s:colors == 0
-	" One Dark
-	let s:aqua = "56b6c2"
-	let s:blue = "61afef"
-	let s:green = "98c379"
-	let s:orange = "bf956a"
-	let s:purple = "c678dd"
-	let s:red = "e06c75"
-	let s:yellow = "e5c07b"
-
-elseif s:colors == 1
-	" One Dark - desaturated
-	let s:aqua = "6eb0b4"
-	let s:blue = "73a9de"
-	let s:green = "9fbb75"
-	let s:orange = "bf915f"
-	let s:purple = "b473c4"
-	let s:red = "d06e6c"
-	let s:yellow = "dfbd79"
-
-elseif s:colors == 2
-	" Seti
-	let s:aqua = "55dbbe"
-	let s:blue = "55b5db"
-	let s:green = "9fca56"
-	let s:orange = "d98657"
-	let s:purple = "a074c4"
-	let s:red = "cd3f45"
-	let s:yellow = "e6cd69"
-endif
+let s:aqua = "56b6c2"
+let s:blue = "61afef"
+let s:green = "98c379"
+let s:orange = "bf956a"
+let s:purple = "c678dd"
+let s:red = "e06c75"
+let s:yellow = "e5c07b"
 
 set background=dark
 hi clear
 syntax reset
 
-let g:colors_name = "seti"
+let g:colors_name = "onedark"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Returns an approximate grey index for the given grey level
@@ -293,8 +239,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("LineNr", s:lineNr, "", "")
 	call <SID>X("NonText", s:lineNr, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
-	call <SID>X("Search", s:background, s:yellow, "")
-	call <SID>X("CurSearch", s:background, s:yellow, "")
+	call <SID>X("Search", "", s:search, "")
+	call <SID>X("CurSearch", "", s:curSearch, "")
 	call <SID>X("TabLine", s:lineNr, s:window, "")
 	call <SID>X("TabLineFill", s:foreground, s:window, "")
 	call <SID>X("TabLineSel", s:foreground, s:window, "none")
@@ -308,8 +254,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("WinSeparator", s:lineNr, s:background, "none")
 	call <SID>X("WinBar", s:line, s:foreground, "reverse")
 	call <SID>X("WinBarNC", s:line, s:lineNr, "reverse")
-	call <SID>X("NormalFloat", s:foreground, s:line, "")
-	call <SID>X("FloatBorder", s:foreground, s:line, "")
+	call <SID>X("NormalFloat", s:foreground, s:float, "")
+	call <SID>X("FloatBorder", s:foreground, s:float, "")
 	call <SID>X("Visual", "", s:selection, "")
 	call <SID>X("Directory", s:blue, "", "")
 	call <SID>X("ModeMsg", s:green, "", "")
@@ -325,10 +271,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 		call <SID>X("CursorLine", "", s:line, "none")
 		call <SID>X("CursorLineNr", s:cursorLineNr, s:line, "")
 		call <SID>X("CursorColumn", "", s:line, "none")
-		call <SID>X("PMenu", s:foreground, s:selection, "none")
-		call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
-		call <SID>X("PMenuSbar", s:foreground, s:selection, "none")
-		call <SID>X("PMenuThumb", s:foreground, s:selection, "reverse")
+		call <SID>X("PMenu", s:foreground, s:float, "none")
+		call <SID>X("PMenuSel", s:foreground, s:float, "reverse")
+		call <SID>X("PMenuSbar", s:foreground, s:float, "none")
+		call <SID>X("PMenuThumb", s:foreground, s:float, "reverse")
 		call <SID>X("SignColumn", "", s:background, "none")
 	end
 	if version >= 703
@@ -346,43 +292,43 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Comment", s:comment, "", "italic")
 	call <SID>X("Todo", s:comment, "", "bold")
 	call <SID>X("Title", s:comment, "", "")
-	call <SID>X("Identifier", s:blue, "", "none")
-	call <SID>X("Statement", s:purple, "", s:keyword_style)
-	call <SID>X("Conditional", s:foreground, "", "")
+	call <SID>X("Identifier", s:red, "", "none")
+	call <SID>X("Statement", s:purple, "", "")
+	call <SID>X("Conditional", s:purple, "", "")
 	call <SID>X("Delimiter", s:foreground, "", "")
-	call <SID>X("Keyword", s:purple, "", s:keyword_style)
+	call <SID>X("Keyword", s:purple, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:blue, "", "")
-	call <SID>X("Function", s:yellow, "", "")
-	call <SID>X("Constant", s:blue, "", "")
-	call <SID>X("Number", s:green, "", "")
-	call <SID>X("Boolean", s:blue, "", "")
-	call <SID>X("String", s:orange, "", "")
+	call <SID>X("Function", s:blue, "", "")
+	call <SID>X("Constant", s:yellow, "", "")
+	call <SID>X("Number", s:orange, "", "")
+	call <SID>X("Boolean", s:orange, "", "")
+	call <SID>X("String", s:green, "", "")
 	call <SID>X("Character", s:orange, "", "")
 	call <SID>X("Special", s:yellow, "", "")
-	call <SID>X("PreProc", s:purple, "", s:keyword_style)
-	call <SID>X("Operator", s:foreground, "", "none")
+	call <SID>X("PreProc", s:purple, "", "")
+	call <SID>X("Operator", s:aqua, "", "none")
 	call <SID>X("Type", s:aqua, "", "none")
-	call <SID>X("Define", s:purple, "", s:keyword_style)
-	call <SID>X("Include", s:purple, "", s:keyword_style)
+	call <SID>X("Define", s:purple, "", "")
+	call <SID>X("Include", s:purple, "", "")
 
 	" Treesitter
 	call <SID>X("@variable", s:foreground, "", "")
 
 	" Vim Highlighting
-	call <SID>X("vimCommand", s:purple, "", s:keyword_style)
+	call <SID>X("vimCommand", s:purple, "", "")
 	call <SID>X("vimVar", s:foreground, "", "")
 
 	" C Highlighting
 	call <SID>X("cType", s:blue, "", "")
 	call <SID>X("cStorageClass", s:blue, "", "")
-	call <SID>X("cConditional", s:purple, "", s:keyword_style)
-	call <SID>X("cRepeat", s:purple, "", s:keyword_style)
+	call <SID>X("cConditional", s:purple, "", "")
+	call <SID>X("cRepeat", s:purple, "", "")
 
 	" C# Highlighting
-	call <SID>X("csAccessModifier", s:purple, "", s:keyword_style)
-	call <SID>X("csModifier", s:purple, "", s:keyword_style)
-	call <SID>X("csClass", s:purple, "", s:keyword_style)
+	call <SID>X("csAccessModifier", s:purple, "", "")
+	call <SID>X("csModifier", s:purple, "", "")
+	call <SID>X("csClass", s:purple, "", "")
 	call <SID>X("csType", s:blue, "", "")
 
 	" PHP Highlighting
@@ -406,13 +352,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("rubyRepeat", s:purple, "", "")
 
 	" Python Highlighting
-	call <SID>X("pythonInclude", s:yellow, "", "")
-	call <SID>X("pythonStatement", s:purple, "", s:keyword_style)
-	call <SID>X("pythonConditional", s:purple, "", s:keyword_style)
-	call <SID>X("pythonRepeat", s:purple, "", s:keyword_style)
-	call <SID>X("pythonException", s:purple, "", s:keyword_style)
-	call <SID>X("pythonFunction", s:yellow, "", "")
-	call <SID>X("pythonBuiltin", s:yellow, "", "")
+	call <SID>X("pythonInclude", s:purple, "", "")
+	call <SID>X("pythonStatement", s:purple, "", "")
+	call <SID>X("pythonConditional", s:purple, "", "")
+	call <SID>X("pythonRepeat", s:purple, "", "")
+	call <SID>X("pythonException", s:purple, "", "")
+	call <SID>X("pythonFunction", s:blue, "", "")
+	call <SID>X("pythonAttribute", s:red, "", "")
+	call <SID>X("pythonBuiltin", s:blue, "", "")
 
 	" Go Highlighting
 	call <SID>X("goStatement", s:purple, "", "")

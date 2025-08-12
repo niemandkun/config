@@ -12,7 +12,7 @@ vim.cmd('aunmenu PopUp.How-to\\ disable\\ mouse')
 vim.cmd('aunmenu PopUp.-2-')
 
 -- Colorscheme
-vim.cmd.colorscheme('seti')
+vim.cmd.colorscheme('onedark')
 vim.opt.background = 'dark'
 
 -- Gui font
@@ -89,6 +89,9 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = { 'lastused:full' }
 vim.opt.wildoptions = { 'pum' }
 vim.opt.wildcharm = 9  -- '<Tab>'
+
+-- Float
+vim.opt.winborder = "solid"
 
 -- Split
 vim.opt.splitbelow = true

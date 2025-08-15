@@ -4,6 +4,12 @@ vim.lsp.config['luals'] = {
 	root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
 }
 
+vim.lsp.config['clangd'] = {
+	cmd = { 'clangd', '--background-index' },
+	filetypes = { 'c', 'cpp' },
+	root_markers = { '.clangd', '.clang-format', 'compile_commands.json', '.git/' },
+}
+
 vim.lsp.config['csharp-ls'] = {
 	cmd = { 'csharp-ls' },
 	cmd_env = { FrameworkPathOverride = '/usr/lib/mono/4.7.2-api/' },
@@ -42,6 +48,7 @@ if not vscode then
 	})
 
 	vim.lsp.enable('luals')
+	vim.lsp.enable('clangd')
 	vim.lsp.enable('csharp-ls')
 	vim.lsp.enable('rust-analyzer')
 end

@@ -48,7 +48,7 @@ vim.opt.listchars = { tab = '> ', trail = '~', extends = '>', precedes = '<', sp
 vim.opt.ignorecase = true
 vim.opt.smartcase = false
 vim.opt.incsearch = true
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 
 -- Confirm exit if there is unsaved files
 vim.opt.confirm = true

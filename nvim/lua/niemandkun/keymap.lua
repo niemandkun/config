@@ -48,3 +48,6 @@ vim.keymap.set('c', '<Right>', wildmenu_wrapper(' <bs><Tab>', '<Right>'), { expr
 if gui_running then
     vim.keymap.set({"i", "c"}, "<S-Insert>", "<C-R>+")
 end
+
+-- Don't touch unnamed register when pasting over visual selection
+vim.keymap.set("x", "p", function() return 'pgv"' .. vim.v.register .. "y" end, { remap = false, expr = true })

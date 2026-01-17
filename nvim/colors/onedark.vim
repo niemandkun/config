@@ -1,10 +1,11 @@
 " One Dark
 
-let s:foreground = "abb2bf"
 let s:background = "282c34"
-let s:comment = "5d636f"
 let s:window = "282c34"
 let s:line = "2d323b"
+
+let s:foreground = "abb2bf"
+let s:comment = "5d636f"
 let s:float = "2f343e"
 let s:selection = "394c62"
 let s:lineNr = "4e5a5f"
@@ -19,6 +20,27 @@ let s:orange = "bf956a"
 let s:purple = "c678dd"
 let s:red = "e06c75"
 let s:yellow = "e5c07b"
+
+" let s:background = "121212"
+" let s:window = "121212"
+" let s:line = "1f1f1f"
+
+" let s:foreground = "b4b4b4"
+" let s:comment = "646464"
+" let s:float = "343434"
+" let s:selection = "394c62"
+" let s:lineNr = "565656"
+" let s:cursorLineNr = "d4d4d4"
+" let s:search = "597ca3"
+" let s:curSearch = "577fa9"
+
+" let s:aqua = "58b6ba"
+" let s:blue = "64afe6"
+" let s:green = "9bc374"
+" let s:orange = "c49464"
+" let s:purple = "cb77d4"
+" let s:red = "e66b6e"
+" let s:yellow = "eabf76"
 
 set background=dark
 hi clear
@@ -293,7 +315,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Todo", s:comment, "", "bold")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
-	call <SID>X("Statement", s:purple, "", "")
+	call <SID>X("Statement", s:purple, "", "none")
 	call <SID>X("Conditional", s:purple, "", "")
 	call <SID>X("Delimiter", s:foreground, "", "")
 	call <SID>X("Keyword", s:purple, "", "")
@@ -401,6 +423,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("ShowMarksHLo", s:purple, s:background, "none")
 	call <SID>X("ShowMarksHLu", s:yellow, s:background, "none")
 	call <SID>X("ShowMarksHLm", s:aqua, s:background, "none")
+
+	" Scheme highlighting
+	call <SID>X("schemeForm", s:foreground, "none", "none")
+	call <SID>X("schemeIdentifier", s:foreground, "none", "none")
+	call <SID>X("schemeParentheses", s:foreground, "none", "none")
 
 	" Delete Functions
 	delf <SID>X

@@ -11,9 +11,14 @@ vim.cmd('syntax on')
 vim.cmd('aunmenu PopUp.How-to\\ disable\\ mouse')
 vim.cmd('aunmenu PopUp.-2-')
 
+-- Attempt to set terminal window title
+vim.opt.title = true
+vim.opt.titlestring = 'Neovim'
+
 -- Colorscheme
 vim.cmd.colorscheme('onedark')
 vim.opt.background = 'dark'
+vim.opt.termguicolors = true
 
 -- Gui font
 if gui_running then
